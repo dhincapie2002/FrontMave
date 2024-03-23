@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+.lilita-one-regular {
+    font-family: "Lilita One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
 :root{
     background-color: #272020;
     padding: 0;
@@ -5,7 +12,9 @@
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
+
 body{
+    font-family: "Lilita One", sans-serif;
     background-color: #c9d6ff;
     background: linear-gradient(to right, #60C8B3, #1B5091);
     display: flex;
@@ -14,8 +23,9 @@ body{
     flex-direction: column;
     height: 100vh;
 }
+/*linea de lamitad*/
 .container{
-    background-color: #fff;
+    background: #60C8B3;
     border-radius: 30px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
     position: relative;
@@ -23,31 +33,49 @@ body{
     width: 900px;
     max-width: 100%;
     min-height: 520px;
+    font-family: "Lilita One", sans-serif;
 }
 
 .container p{
-    font-size: 14px;
+    color: #CE3375;
+    font-size: 25px;
+    margin: 10px 0;
+    font-family: "Lilita One", sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 30px;
+}
+.acronym {
+    font-size: 20px;
     line-height: 20px;
-    letter-spacing: 0.3px;
-    margin: 20px 0;
+    font-family: "Lilita One", sans-serif;
+    color: #CE3375;
+    &:not(br) {
+        font-size: 25px; /* Tamaño de fuente para letras en mayúscula */
+        color: #CE3375; /* Color de texto para letras en mayúscula */
+        letter-spacing: 1px;
+        line-height: 30px;
+        margin: 10px 0;
+    }
 }
 
 .container span{
-    font-size: 12px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-family: 'Lilita One', Times, serif;
 }
 
 .container a{
-    color: #333;
-    font-size: 13px;
+    color: #FFFF;
+    font-size: 17px;
     text-decoration: none;
     margin: 15px 0 10px;
+    font-family: 'Lilita One', Times, serif;
 }
 
 .container button{
     background-color: rgb(30, 105, 196);
     color: #fff;
-    font-size: 12px;
+    font-size: 20px;
     padding: 10px 45px;
     border: 1px solid transparent;
     border-radius: 8px;
@@ -56,25 +84,27 @@ body{
     text-transform: uppercase;
     margin-top: 10px;
     cursor: pointer;
+    font-family: 'Lilita One', Times, serif;
 }
 
 .container button.hidden{
     background-color: transparent;
-    border-color: #fff;
+    border-color: #ffff;
 }
-
+/*Fondo*/
 .container form{
-    background-color: #fff;
+    background-color: #60C8B3;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     padding: 0 40px;
     height: 100%;
+    color: #1B5091;
 }
 
 .container input{
-    background-color: #eee;
+    background-color: #FFBE98;
     border: none;
     margin: 8px 0;
     padding: 10px 15px;
@@ -82,6 +112,7 @@ body{
     border-radius: 8px;
     width: 100%;
     outline: none;
+    font-family: 'Lilita One', Times, serif;
 }
 
 .form-container{
@@ -153,8 +184,8 @@ body{
 .toggle{
     background-color: rgb(30, 105, 196);
     height: 100%;
-    background: linear-gradient(to right, #60C8B3, #E881A6);
-    color: #fff;
+    background: linear-gradient(to right, #6EA1D4, #60C8B3);
+    color: #ffffff;
     position: relative;
     left: -100%;
     height: 100%;
@@ -197,4 +228,9 @@ body{
 
 .container.active .toggle-right{
     transform: translateX(200%);
+}
+
+.logo {
+    width: 120px;
+    height: 120px;
 }
