@@ -23,7 +23,7 @@ body{
     flex-direction: column;
     height: 100vh;
 }
-/*linea de lamitad*/
+/*linea de la mitad*/
 .container{
     background: #60C8B3;
     border-radius: 30px;
@@ -37,13 +37,14 @@ body{
 }
 
 .container p{
-    color: #CE3375;
+    color: #FFBE98;
     font-size: 25px;
     margin: 10px 0;
     font-family: "Lilita One", sans-serif;
     font-weight: bold;
     letter-spacing: 1px;
     line-height: 30px;
+    text-shadow: 0 0 2px black;
 }
 .acronym {
     font-size: 20px;
@@ -52,7 +53,7 @@ body{
     color: #CE3375;
     &:not(br) {
         font-size: 25px; /* Tamaño de fuente para letras en mayúscula */
-        color: #CE3375; /* Color de texto para letras en mayúscula */
+        color: #FFBE98; /* Color de texto para letras en mayúscula */
         letter-spacing: 1px;
         line-height: 30px;
         margin: 10px 0;
@@ -70,6 +71,8 @@ body{
     text-decoration: none;
     margin: 15px 0 10px;
     font-family: 'Lilita One', Times, serif;
+    text-shadow: 0 0 10px black;
+
 }
 
 .container button{
@@ -89,7 +92,8 @@ body{
 
 .container button.hidden{
     background-color: transparent;
-    border-color: #ffff;
+    border-color: #ffffff;
+
 }
 /*Fondo*/
 .container form{
