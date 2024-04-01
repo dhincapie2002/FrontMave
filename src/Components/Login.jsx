@@ -11,10 +11,10 @@ const Login = () => {
     const handleLoginClick = () => {
         setIsSignUpActive(false);
     };
-
     return (
         <>
             <div className={`container ${isSignUpActive ? 'active' : ''}`}>
+                
                 <div className="form-container sing-up">
                     <form>
                         <h1>Crear Cuenta</h1>
@@ -30,24 +30,30 @@ const Login = () => {
                 <div className="form-container sign-in">
                     <form>
                         <h1>Ingresar</h1>
-                        <span>Usa tu usuario y contraseña</span>
+                        <span>Ingresa tu correo y contraseña</span>
                         <input type="email" placeholder="Correo" />
                         <input type="password" placeholder="Contraseña" />
-                        <a href="#">Forget Your Password?</a>
+                        <a href="#">¿Olvidaste tu Contraseña?</a>
                         <button>Ingresar</button>
                     </form>
                 </div>
                 <div className="toggle-container">
                     <div className="toggle">
                         <div className={`toggle-panel toggle-left ${isSignUpActive ? 'active': ''}`}>
-                            <h1>Bienvenido de Nuevo!</h1>
-                            <p>Ingresa tus datos personales</p>
-                            <button className="hidden" id="login" onClick={handleLoginClick} >Registrarse</button>
+                            <h1>¡ Bienvenido a MAVE !</h1>
+                            <img src="./src/Picture/logo.svg" alt="Logo" className="logo"></img>
+                            <p className="acronym">Mente en <br />
+                            Armonía <br />
+                            Vida en <br />
+                            Equilibrio
+                            </p>
+                            <button className="hidden" id="login" onClick={handleLoginClick} >Quiero <br/> Registrarme</button>
                         </div>
                         <div className={`toggle-panel toggle-right ${isSignUpActive ? '' : 'active'}`}>
-                            <h1>Bienvenido!</h1>
-                            <p>Ingresa tus datos personales</p>
-                            <button className="hidden" id="register" onClick={handleRegisterClick}>Ingresar</button>
+                            <h1>! Unete a MAVE !</h1>
+                            <img src="./src/Picture/logo.svg" alt="Logo" className="logo"></img>
+                            <p className="p2">Completa el formulario con tu información personal</p>
+                            <button className="hidden" id="register" onClick={handleRegisterClick}>Ya tengo cuenta, quiero <br/>Ingresar</button>
                         </div>
                     </div>
                 </div>
