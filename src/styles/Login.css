@@ -13,7 +13,7 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-body{
+body{/*Degradado de fondo*/
     font-family: "Lilita One", sans-serif;
     background-color: #c9d6ff;
     background: linear-gradient(to right, #60C8B3, #1B5091);
@@ -25,9 +25,10 @@ body{
 }
 /*linea de la mitad*/
 .container{
+    /*Luz de fondo*/
     background: #60C8B3;
     border-radius: 30px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 5px 15px #c9d6ff;
     position: relative;
     overflow: hidden;
     width: 900px;
@@ -37,26 +38,29 @@ body{
 }
 
 .container p{
-    color: #FFBE98;
+    /*Texto abajo del logo registrarse*/
+    color: #FFFF;
     font-size: 25px;
     margin: 10px 0;
     font-family: "Lilita One", sans-serif;
     font-weight: bold;
     letter-spacing: 1px;
     line-height: 30px;
-    text-shadow: 0 0 2px black;
+    text-shadow: 0 0 5px black;
 }
 .acronym {
+    /*Texto abajo del logo ingresar*/
     font-size: 20px;
     line-height: 20px;
     font-family: "Lilita One", sans-serif;
     color: #CE3375;
     &:not(br) {
         font-size: 25px; /* Tamaño de fuente para letras en mayúscula */
-        color: #FFBE98; /* Color de texto para letras en mayúscula */
+        color: #FFFF; /* Color de texto para letras en mayúscula */
         letter-spacing: 1px;
         line-height: 30px;
         margin: 10px 0;
+        text-shadow: 0 0 3px black;
     }
 }
 
@@ -71,11 +75,12 @@ body{
     text-decoration: none;
     margin: 15px 0 10px;
     font-family: 'Lilita One', Times, serif;
-    text-shadow: 0 0 10px black;
+    text-shadow: 0 0 5px black;
 
 }
 
 .container button{
+    /*Boton de ingresar*/
     background-color: rgb(30, 105, 196);
     color: #fff;
     font-size: 20px;
@@ -108,7 +113,8 @@ body{
 }
 
 .container input{
-    background-color: #FFBE98;
+    /*Cajas de texto*/
+    background-color: #FFFF;
     border: none;
     margin: 8px 0;
     padding: 10px 15px;
@@ -185,18 +191,23 @@ body{
     border-radius: 0 150px 100px 0;
 }
 
-.toggle{
+.toggle {
+    /* Título de bienvenida */
     background-color: rgb(30, 105, 196);
     height: 100%;
     background: linear-gradient(to right, #6EA1D4, #60C8B3);
+    /* Color de texto de bienvenida */
     color: #ffffff;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 3px 0 #000; /* Contorno del texto */
     position: relative;
     left: -100%;
     height: 100%;
     width: 200%;
     transform: translateX(0);
     transition: all 0.6s ease-in-out;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Agrega una sombra suave al elemento */
 }
+
 
 .container.active .toggle{
     transform: translateX(50%);
