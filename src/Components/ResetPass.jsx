@@ -1,12 +1,24 @@
-import React, { useState }  from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 
-const ResetPass = ()=>{
+import "../styles/ResetPass.css";
+
+const ForgotPassword = () => {
     return (
-        <>
-        <form>
-            <input type="password" placeholder="NuevaContraseña"/>
-            <input type="password" placeholder="Confirmar contraseña" />
-        </form>
-        </>
-    )
-}
+        <div className="rp-cont">
+                <form>
+                    <h1>Recuperar Contraseña</h1>
+                    <span>Ingresa tu correo electrónico</span>
+                <input type="email" placeholder="Correo" />
+                    <button type="submit" className="button">
+                    Enviar
+                </button>
+                <Link to="/" className="button">
+                    Atrás
+                </Link>
+                </form>
+        </div>
+    );
+};
+
+export default ForgotPassword;
