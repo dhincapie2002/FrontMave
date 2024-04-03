@@ -1,4 +1,6 @@
-import React, { useState }  from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
 import "../styles/Login.css";
 
 const Login = () => {
@@ -33,7 +35,7 @@ const Login = () => {
                         <span>Ingresa tu correo y contraseña</span>
                         <input type="email" placeholder="Correo" />
                         <input type="password" placeholder="Contraseña" />
-                        <a href="#">¿Olvidaste tu Contraseña?</a>
+                        <Link to={"ResetPass"}>¿Olvidaste tu Contraseña?</Link>
                         <button>Ingresar</button>
                     </form>
                 </div>
@@ -41,7 +43,7 @@ const Login = () => {
                     <div className="toggle">
                         <div className={`toggle-panel toggle-left ${isSignUpActive ? 'active': ''}`}>
                             <h1>¡ Bienvenido a MAVE !</h1>
-                            <img src="./src/Picture/logo.svg" alt="Logo" className="logo"></img>
+                            <img src="./src/picture/logo.svg" alt="Logo" className="logo"></img>
                             <p className="acronym">Mente en <br />
                             Armonía <br />
                             Vida en <br />
@@ -51,7 +53,7 @@ const Login = () => {
                         </div>
                         <div className={`toggle-panel toggle-right ${isSignUpActive ? '' : 'active'}`}>
                             <h1>! Unete a MAVE !</h1>
-                            <img src="./src/Picture/logo.svg" alt="Logo" className="logo"></img>
+                            <img src="./src/picture/logo.svg" alt="Logo" className="logo"></img>
                             <p className="p2">Completa el formulario con tu información personal</p>
                             <button className="hidden" id="register" onClick={handleRegisterClick}>Ya tengo cuenta, quiero <br/>Ingresar</button>
                         </div>
