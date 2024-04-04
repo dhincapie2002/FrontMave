@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Login from './components/Login.jsx'
-import ResetPass from './components/ResetPass.jsx';
+import Login from './Components/Login.jsx'
+import ResetPass from './Components/ResetPass.jsx';
 import {
     createBrowserRouter,
     RouterProvider,
