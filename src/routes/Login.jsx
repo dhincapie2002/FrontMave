@@ -1,6 +1,12 @@
+<<<<<<< HEAD:src/Components/Login.jsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+=======
+import { useState } from "react";
+>>>>>>> feb0eaa230865b75b60c6b46cb1421a3f1aabb65:src/routes/Login.jsx
 import "../styles/Login.css";
+import Registro from "../components/Registro";
+import InicioSession from "../components/InicioSession";
 
 const Login = () => {
     const [isSignUpActive, setIsSignUpActive] = useState(true);
@@ -17,32 +23,17 @@ const Login = () => {
             <div className={`container ${isSignUpActive ? 'active' : ''}`}>
                 
                 <div className="form-container sing-up">
-                    <form>
-                        <h1>Crear Cuenta</h1>
-                        <span>Registrarse</span>
-                        <input type="text" placeholder="Nombre" />
-                        <input type="email" placeholder="Correo" />
-                        <input type="number" placeholder="Telefono" />
-                        <input type="password" placeholder="Contraseña" />
-                        <input type="password" placeholder="Confirmar contraseña" />
-                        <button>Registro</button>
-                    </form>
+                   <Registro />
                 </div>
+
                 <div className="form-container sign-in">
-                    <form>
-                        <h1>Ingresar</h1>
-                        <span>Ingresa tu correo y contraseña</span>
-                        <input type="email" placeholder="Correo" />
-                        <input type="password" placeholder="Contraseña" />
-                        <Link to={"ResetPass"}>¿Olvidaste tu Contraseña?</Link>
-                        <button>Ingresar</button>
-                    </form>
+                    <InicioSession />
                 </div>
                 <div className="toggle-container">
                     <div className="toggle">
                         <div className={`toggle-panel toggle-left ${isSignUpActive ? 'active': ''}`}>
                             <h1>¡ Bienvenido a MAVE !</h1>
-                            <img src="./src/picture/logo.svg" alt="Logo" className="logo"></img>
+                            <img src="../picture/logo.svg" alt="Logo" className="logo"></img>
                             <p className="acronym">Mente en <br />
                             Armonía <br />
                             Vida en <br />
