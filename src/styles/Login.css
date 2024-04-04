@@ -108,7 +108,13 @@ body{/*Degradado de fondo*/
     flex-direction: column;
     padding: 0 40px;
     height: 100%;
+    width: auto;
     color: #1B5091;
+}
+
+.resetPass:hover {
+    color: #1B5091;
+    text-shadow: none;
 }
 
 .container input{
@@ -127,6 +133,7 @@ body{/*Degradado de fondo*/
 .form-container{
     position: absolute;
     top: 0;
+    background: red;
     height: 100%;
     transition: all 0.6s ease-in-out;
 }
