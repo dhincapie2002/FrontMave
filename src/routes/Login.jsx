@@ -28,7 +28,7 @@ const Login = () => {
                     <div className="toggle">
                         <div className={`toggle-panel toggle-left ${isSignUpActive ? 'active': ''}`}>
                             <h1>¡ Bienvenido a MAVE !</h1>
-                            <img src="../picture/logo.svg" alt="Logo" className="logo"></img>
+                            <img src="./src/assets/logo.svg" alt="Logo" className="logo"></img>
                             <p className="acronym">Mente en <br />
                             Armonía <br />
                             Vida en <br />
@@ -38,7 +38,7 @@ const Login = () => {
                         </div>
                         <div className={`toggle-panel toggle-right ${isSignUpActive ? '' : 'active'}`}>
                             <h1>! Unete a MAVE !</h1>
-                            <img src="./src/picture/logo.svg" alt="Logo" className="logo"></img>
+                            <img src="./src/assets/logo.svg" alt="Logo" className="logo"></img>
                             <p className="p2">Completa el formulario con tu información personal</p>
                             <button className="hidden" id="register" onClick={handleRegisterClick}>Ya tengo cuenta, quiero <br/>Ingresar</button>
                         </div>
