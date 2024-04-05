@@ -8,7 +8,7 @@ const InicioSession = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = handleSubmit((data) => {
-        const result = SessionInit({user: data.mail, password: data.password})
+        const result = SessionInit(data)
     })
 
     return (

@@ -5,10 +5,10 @@ import { InicioUser, NuevoUser } from '../querys/users.query'
 const initUser = 'inicioSession'
 
 // consulta de usuario para hacer login}
-export function SessionInit({ user, password }) {
+export function SessionInit(data) {
     return useQuery({
         queryKey: [initUser],
-        queryFn: async () => await InicioUser({ user, password })
+        queryFn: async () => await InicioUser(data)
     })
 }
 
