@@ -1,14 +1,14 @@
 // Aqui se hacen peticiones 
 import { useQuery, useMutation } from '@tanstack/react-query'
-import { InicioUser, NuevoUser } from '../querys/users.query'
+import { InicioUser, NuevoUser, ResetPass } from '../querys/users.query'
 
 const initUser = 'inicioSession'
 
 // consulta de usuario para hacer login}
-export function SessionInit({ user, password }) {
+export function SessionInit(data) {
     return useQuery({
         queryKey: [initUser],
-        queryFn: async () => await InicioUser({ user, password })
+        queryFn: async () => await InicioUser(data)
     })
 }
 
@@ -17,5 +17,13 @@ export function SessionInit({ user, password }) {
 export function NewUSer() {
     return useMutation({
         mutationFn: async (data) => await NuevoUser(data)
+    })
+}
+
+
+// reset password (cambio de contraseña desde el correo)
+export function ResetPassword() {
+    return useMutation({
+        mutationFn: async (data) => await ResetPass(data)
     })
 }

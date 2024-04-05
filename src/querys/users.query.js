@@ -1,19 +1,29 @@
 import axios from "axios";
-import env from "react-dotenv";
+
+const URL = import.meta.env.VITE_URL
 
 // Inicio de session 
-export async function InicioUser({ user, password }) {
-    return await axios.get("${env.URL}/")
+export async function InicioUser(data) {
+    return await axios.post(`${URL}/User/LogIn`, {
+        user: data.mail,
+        pass: data.password
+    })
 }
 
 
 // crea un nuevo usuario
 export async function NuevoUser(data) {
-    return await axios.post(`${env.REST_API}/User`, {
-        NameU: data.name,
-        Email: data.email,
-        Phone: data.telefono,
-        Pass: data.password
+    return await axios.post(`${URL}/User/SigIn`, {
+        userName: data.name,
+        email: data.email,
+        phone: data.telefono,
+        password: data.pass
     })
 }
 
+// reset password desde mail
+export async function ResetPass(data) {
+    return await axios.post(`${URL}/User/PasswordRecovery`, {   
+        email: data.email
+    })
+}
