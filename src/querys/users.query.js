@@ -17,7 +17,13 @@ export async function NuevoUser(data) {
         userName: data.name,
         email: data.email,
         phone: data.telefono,
-        password: data.password
+        password: data.pass
     })
 }
 
+// reset password desde mail
+export async function ResetPass(data) {
+    return await axios.post(`${URL}/User/PasswordRecovery`, {   
+        email: data.email
+    })
+}

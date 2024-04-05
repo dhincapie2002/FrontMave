@@ -8,7 +8,7 @@ const InicioSession = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = handleSubmit((data) => {
-        const result = SessionInit(data)
+        console.log(data)
     })
 
     return (

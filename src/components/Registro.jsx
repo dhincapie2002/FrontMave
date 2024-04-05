@@ -1,14 +1,24 @@
 import { useForm } from "react-hook-form"
 import { NewUSer } from "../hooks/CrudUsers";
+import cookie from 'universal-cookie'
 
 const Registro = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
+
+  const cook = new cookie()
 
   const mutacion = NewUSer()
 
   const onSubmit = handleSubmit((data) => {
     mutacion.mutate(data)
   })
+
+  // se valida usuario si es verdadero inicia session 
+
+  // if (mutacion.isSuccess) {
+  //   const usuario = cook.set(mutacion.)
+  // }
+
 
   return (
     <form onSubmit={onSubmit}>
