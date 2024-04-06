@@ -2,13 +2,10 @@
 import { useQuery, useMutation } from '@tanstack/react-query'
 import { InicioUser, NuevoUser, ResetPass } from '../querys/users.query'
 
-const initUser = 'inicioSession'
-
 // consulta de usuario para hacer login}
-export function SessionInit(data) {
-    return useQuery({
-        queryKey: [initUser],
-        queryFn: async () => await InicioUser(data)
+export function SessionInit() {
+    return useMutation({
+        mutationFn: async (data) => await InicioUser(data)
     })
 }
 

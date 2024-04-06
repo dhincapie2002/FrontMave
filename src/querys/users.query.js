@@ -5,7 +5,7 @@ const URL = import.meta.env.VITE_URL
 // Inicio de session 
 export async function InicioUser(data) {
     return await axios.post(`${URL}/User/LogIn`, {
-        user: data.mail,
+        email: data.mail,
         pass: data.password
     })
 }

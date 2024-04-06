@@ -1,14 +1,34 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import '../styles/alert.css'
 import { SessionInit } from "../hooks/CrudUsers";
+import Cookies from "universal-cookie";
 
 const InicioSession = () => {
 
+    const cookie = new Cookies();
+    // llamado de estancia de nueva ruta
+    const navigate = useNavigate();
+
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const mutation = InicioSession()
+
+    // Se Inicia una mutacion para consultar el usuario
+    const mutacion = SessionInit();
+
+    // Se verifica que el usuario exista
+    if (mutacion.isSuccess) {
+        let usuario = mutacion.data.data
+        let token  = usuario.split(' ')[3];
+        // se crea una cookie con el id de usuario 
+        cookie.set('token', token, { path: '/' })
+
+        // Se envia a la ruta del dashboard con inicio de session 
+        navigate('/Dashboar')
+    }
+
     const onSubmit = handleSubmit((data) => {
-        console.log(data)
+        // Consulta de usuario que exista 
+        mutacion.mutate(data)
     })
 
     return (
@@ -36,12 +56,25 @@ const InicioSession = () => {
             {errors.password && <span className={'alert'}>{errors.password.message}</span>}
 
             <Link className="resetPass" to={"ResetPass"}>¿Olvidaste tu Contraseña?</Link>
-         
+
             <button type="submit" className="button">
                 Enviar
             </button>
+            {
+                mutacion.isPending && <span>Loading...</span>
+            }
+            {
+                mutacion.isSuccess && <span>Hecho</span>
+            }
+            {
+                mutacion.isError && <span>Usurio Erroneo</span>
+            }
+
+
         </form>
     )
 }
 
 export default InicioSession
+
+
