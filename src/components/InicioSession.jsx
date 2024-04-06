@@ -6,7 +6,7 @@ import { SessionInit } from "../hooks/CrudUsers";
 const InicioSession = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
-
+    const mutation = InicioSession()
     const onSubmit = handleSubmit((data) => {
         console.log(data)
     })

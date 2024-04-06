@@ -1,9 +1,4 @@
-<<<<<<< HEAD:src/Components/Login.jsx
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-=======
 import { useState } from "react";
->>>>>>> feb0eaa230865b75b60c6b46cb1421a3f1aabb65:src/routes/Login.jsx
 import "../styles/Login.css";
 import Registro from "../components/Registro";
 import InicioSession from "../components/InicioSession";

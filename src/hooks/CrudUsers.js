@@ -27,3 +27,13 @@ export function ResetPassword() {
         mutationFn: async (data) => await ResetPass(data)
     })
 }
+export function Reset() {
+    return useMutation({
+        mutationFn: async(data) => await Reset(data)
+    })
+}
+export function InicioSession(){
+    return useMutation({
+        mutationFn: async(data) => await InicioUser(data)
+    })
+}

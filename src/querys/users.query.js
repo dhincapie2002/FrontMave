@@ -27,3 +27,10 @@ export async function ResetPass(data) {
         email: data.email
     })
 }
+
+//reset password link email
+export async function Reset(data) {
+    return await axios.post(`${URL}/User/PasswordReset`,{
+        password: data.password
+    })
+}
