@@ -14,7 +14,7 @@ function LogOut() {
     useEffect(() => {
         setTimeout(() => {
             if (token) {
-                cookie.remove('token', { path: '/' });
+                cookie.remove('id', { path: '/' });
                 navigate('/')
             } else {
                 navigate('/')

@@ -17,10 +17,11 @@ const InicioSession = () => {
 
     // Se verifica que el usuario exista
     if (mutacion.isSuccess) {
-        let usuario = mutacion.data.data
-        let token  = usuario.split(' ')[3];
+        // 
+        let usuario = mutacion.data.data.id
+
         // se crea una cookie con el id de usuario 
-        cookie.set('token', token, { path: '/' })
+        cookie.set('id', usuario, { path: '/' })
 
         // Se envia a la ruta del dashboard con inicio de session 
         navigate('/Dashboar')

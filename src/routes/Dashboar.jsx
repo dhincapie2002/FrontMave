@@ -6,7 +6,7 @@ function Dashboar() {
   const cookie = new Cookies();
   const navigate = useNavigate();
 
-  const cook = cookie.get('token')
+  const cook = cookie.get('id')
   useEffect(() => {
     if (!cook) {
       navigate('/time-out') // Hay que crear la ruta time out que es el cierre de sesioón

@@ -135,6 +135,7 @@ body{/*Degradado de fondo*/
     top: 0;
     background: red;
     height: 100%;
+    width: 50%;
     transition: all 0.6s ease-in-out;
 }
 
