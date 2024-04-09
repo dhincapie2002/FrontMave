@@ -2,8 +2,13 @@ import { useForm } from "react-hook-form"
 import { NewUSer } from "../../hooks/Authentications";
 import cookie from 'universal-cookie'
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import '../../styles/registro.css'
 
 const Registro = () => {
+
+  const [verPassword, setVerPassword] = useState(false)
+  const [confPassword, setConfPassword] = useState(false)
 
   const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -20,7 +25,7 @@ const Registro = () => {
     // se crea una cookie con el id de usuario 
     cook.set('id', usuario, { path: '/' })
 
-    // Se envia a la ruta del dashboard con inicio de session 
+    // Se envia a la ruta de la encuesta con inicio de session 
     navegate('/Encuesta')
   }
 
@@ -35,59 +40,72 @@ const Registro = () => {
     <form onSubmit={onSubmit}>
       <h1>Crear Cuenta</h1>
       <span>Registrarse</span>
-      <input type="text" placeholder="Nombre"
-        {...register('name', {
-          required: {
-            value: true,
-            message: "El nombre es requerido"
-          }
-        })} />
-      {errors.name && <span className="alert">{errors.name.message}</span>}
 
-      <input type="email" placeholder="Correo"
-        {...register('email', {
-          required: {
-            value: true,
-            message: "El correo electrónico es requerido"
-          }
-        })} />
-      {errors.email && <span className="alert">{errors.email.message}</span>}
+      <div className="caja">
+        <input type="text" placeholder="Nombre"
+          {...register('name', {
+            required: {
+              value: true,
+              message: "El nombre es requerido"
+            }
+          })} />
+        {errors.name && <span className="alert">{errors.name.message}</span>}
+      </div>
 
+      <div className="caja">
+        <input type="email" placeholder="Correo"
+          {...register('email', {
+            required: {
+              value: true,
+              message: "El correo electrónico es requerido"
+            }
+          })} />
+        {errors.email && <span className="alert">{errors.email.message}</span>}
+      </div>
 
-      <input type="text" maxLength="10" placeholder="Telefono"
-        {...register('telefono', {
-          required: {
-            value: true,
-            message: "El telefono es requerido"
-          },
-          minLength: {
-            value: 10,
-            message: "El telefono debe tener al menos 10 caracteres"
-          },
-          pattern: {
-            value: "^[0-9,$]*$",
-            message: "El telefono debe tener solo numeros"
-          }
-        })} />
-      {errors.telefono && <span className="alert">{errors.telefono.message}</span>}
+      <div className="caja">
+        <input type="text" maxLength="10" placeholder="Telefono"
+          {...register('telefono', {
+            required: {
+              value: true,
+              message: "El telefono es requerido"
+            },
+            minLength: {
+              value: 10,
+              message: "El telefono debe tener al menos 10 caracteres"
+            },
+            pattern: {
+              value: "^[0-9,$]*$",
+              message: "El telefono debe tener solo numeros"
+            }
+          })} />
+        {errors.telefono && <span className="alert">{errors.telefono.message}</span>}
+      </div>
 
-      <input type="password" placeholder="Contraseña"
-        {...register('pass', {
-          required: {
-            value: true,
-            message: "La contraseña es requerida"
-          }
-        })} />
-      {errors.pass && <span className="alert">{errors.pass.message}</span>}
+      <div className="caja">
+        <input type={verPassword ? 'text' : 'password'} placeholder="Contraseña"
+          {...register('pass', {
+            required: {
+              value: true,
+              message: "La contraseña es requerida"
+            }
+          })} />
+        {errors.pass && <span className="alert">{errors.pass.message}</span>}
+        <span className="verPass" onClick={() => setVerPassword(!verPassword)}>{ verPassword ? 'close' : 'view' }</span>
+      </div>
 
-      <input type="password" placeholder="Confirmar contraseña"
-        {...register('confpass', {
-          required: {
-            value: true,
-            message: "La confirmación de contraseña es requerida"
-          }
-        })} />
-      {errors.confpass && <span className="alert">{errors.confpass.message}</span>}
+      <div className="caja">
+        <input type={confPassword ? 'text' : 'password'} placeholder="Confirmar contraseña"
+          {...register('confpass', {
+            required: {
+              value: true,
+              message: "La confirmación de contraseña es requerida"
+            }
+          })} />
+
+        <span className="verPass" onClick={() => setConfPassword(!confPassword)}>{ confPassword ? 'close' : 'view' }</span>
+        {errors.confpass && <span className="alert">{errors.confpass.message}</span>}
+      </div>
 
       <button>Registro</button>
 

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = import.meta.env.VITE_URL
+export const URL = import.meta.env.VITE_URL
 
 export let token;
 // Inicio de session 

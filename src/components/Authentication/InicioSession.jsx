@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import '../../styles/alert.css'
 import { SessionInit } from "../../hooks/Authentications";
 import Cookies from "universal-cookie";
+import { useState } from "react";
 
 const InicioSession = () => {
 
@@ -12,8 +13,11 @@ const InicioSession = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    // Se Inicia una mutacion para consultar el usuario
-    const mutacion = SessionInit();
+    // Estados de React 
+    const [pass, setPass] = useState();
+
+    // Llamada de mutacion
+    const mutacion = SessionInit()
 
     // Se verifica que el usuario exista
     if (mutacion.isSuccess) {
@@ -36,25 +40,31 @@ const InicioSession = () => {
         <form onSubmit={onSubmit}>
             <h1>Ingresar</h1>
             <span>Ingresa tu correo y contraseña</span>
-            <input type="email" placeholder="Correo"
-                {...register('mail', {
-                    required: {
-                        value: true,
-                        message: "El correo electrónico es requerido"
-                    }
-                })}
-            />
-            {errors.mail && <span className={'alert'}>{errors.mail.message}</span>}
+            <div className="caja">
+                <input type="email" placeholder="Correo"
+                    {...register('mail', {
+                        required: {
+                            value: true,
+                            message: "El correo electrónico es requerido"
+                        }
+                    })}
+                />
+                {errors.mail && <span className={'alert'}>{errors.mail.message}</span>}
+            </div>
 
-            <input type="password" placeholder="Contraseña"
-                {...register('password', {
-                    required: {
-                        value: true,
-                        message: "La contraseña es requerida"
-                    }
-                })}
-            />
-            {errors.password && <span className={'alert'}>{errors.password.message}</span>}
+            <div className="caja">
+                <input type={pass ? "password" : "text"} placeholder="Contraseña"
+                    {...register('password', {
+                        required: {
+                            value: true,
+                            message: "La contraseña es requerida"
+                        }
+                    })}
+                />
+                <span className="verPass" onClick={() => setPass(!pass)}>{pass ? 'view': 'close'}</span>
+                {errors.password && <span className={'alert'}>{errors.password.message}</span>}
+            </div>
+
 
             <Link className="resetPass" to={"ResetPass"}>¿Olvidaste tu Contraseña?</Link>
 
