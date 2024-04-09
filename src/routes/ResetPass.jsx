@@ -3,15 +3,20 @@ import { useForm } from "react-hook-form";
 
 import "../styles/ResetPass.css";
 import { useState } from "react";
-import { ResetPassword } from "../hooks/CrudUsers";
+import { ResetPassword } from "../hooks/RestPassword";
 
+
+// modulo que recibe la nueva contraseña
 const ForgotPassword = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm()
 
+   
+
     const mutacion = ResetPassword()
 
     const onSubmit = handleSubmit((data) => {
+
         mutacion.mutate(data)
     })
 

@@ -21,7 +21,9 @@ function LogOut() {
             }
         }, 1000)
 
-    }, [])
+        
+
+    }, [token])
 
 
     return (
