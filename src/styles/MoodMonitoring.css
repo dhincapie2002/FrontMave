@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+.lilita-one-regular {
+    font-family: "Lilita One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    background-color: #272020;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.rp-cont {
+    background: #60C8B3;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px #c9d6ff;
+    position: relative;
+    overflow: hidden;
+    width: 900px;
+    max-width: 100%;
+    min-height: 520px;
+    font-family: "Lilita One", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: space-evenly;
+    color: #1B5091;
+}
+
+header {
+    display: flex;
+    align-items: center; /* Alinea los elementos verticalmente */
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+.logo {
+    width: 55px;
+    height: auto;
+}
+
+.mave {
+    margin-left: 10px; /* Espacio entre el logo y el texto "MAVE" */
+    font-size: 1.1rem; /* Tamaño de fuente ajustable según sea necesario */
+}
+
+h1 {
+    margin-bottom: 10px; /* Reducir el margen inferior del h1 */
+}
+
+h2 {
+    margin-top: 0; /* Establecer el margen superior del h2 a 0 para reducir el espacio */
+    align-items: center;
+}
+
+h3 {
+    margin-top: 0; /* Establecer el margen superior del h2 a 0 para reducir el espacio */
+    align-items: left;
+}
