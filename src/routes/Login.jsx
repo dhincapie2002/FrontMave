@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/Login.css";
-import Registro from "../components/Registro";
-import InicioSession from "../components/InicioSession";
+import Registro from "../components/Authentication/Registro";
+import InicioSession from "../components/Authentication/InicioSession";
 
 const Login = () => {
     const [isSignUpActive, setIsSignUpActive] = useState(true);

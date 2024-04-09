@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import '../styles/alert.css'
-import { SessionInit } from "../hooks/CrudUsers";
+import '../../styles/alert.css'
+import { SessionInit } from "../../hooks/Authentications";
 import Cookies from "universal-cookie";
 
 const InicioSession = () => {
