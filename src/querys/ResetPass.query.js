@@ -1,4 +1,6 @@
 import axios from "axios"
+import { URL } from "./Auth.query"
+
 
 // reset password desde mail
 export async function ResetPass(data) {

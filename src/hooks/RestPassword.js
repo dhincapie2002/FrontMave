@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query"
-import { CambioPass, ResetPass } from "../querys/ResetPass"
+import { CambioPass, ResetPass } from "../querys/ResetPass.query"
 
 // Envia email para ruta de cabio de nueva contraseña
 export function ResetPassword() {
