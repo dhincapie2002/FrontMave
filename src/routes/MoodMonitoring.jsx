@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import "../styles/MoodMonitoring.css";
 import Cookies from "universal-cookie";
 
 const MoodMonitoring = () => {
   const navigate = useNavigate();
+
+  const cookie = new Cookies(); // °° para validar si esta o no logeado
+
+  // Session de usuario
+  const cook = cookie.get('id')
+  useEffect(() => {
+    if (!cook) {
+      navigate('/time-out')
+    }
+  }, [])
+  
+
+  
   return (
     <div className="rp-cont">
       <header>
