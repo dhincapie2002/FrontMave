@@ -132,16 +132,16 @@ p{
   .radio-tile-group .input-container .radio-button:checked + .radio-tile {
     background-color: #1B5091;
     border: 5px solid #1B5091;
-    color: #c9d6ff;
+    color: white;
     transform: scale(1.1, 1.1);
   }
   
   .radio-tile-group .input-container .radio-button:checked + .radio-tile .icon svg {
-    fill: #c9d6ff;
+    fill:white;
     background-color: #1B5091;
   }
   
   .radio-tile-group .input-container .radio-button:checked + .radio-tile .radio-tile-label {
-    color: #c9d6ff;
+    color: white;
     background-color: #1B5091;
   } 
