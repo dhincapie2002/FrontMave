@@ -5,8 +5,9 @@ import Cookies from "universal-cookie";
 
 const MoodMonitoring = () => {
   const navigate = useNavigate();
+  const [selectedOption, setSelectedOption] = useState(null);
 
-  const cookie = new Cookies(); // °° para validar si esta o no logeado
+  const cookie = new Cookies();
 
   // Session de usuario
   const cook = cookie.get('id')
@@ -14,10 +15,20 @@ const MoodMonitoring = () => {
     if (!cook) {
       navigate('/time-out')
     }
-  }, [])
-  
+  },)
 
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
   
+  const handleConfirmarRespuesta = () => {
+    if (selectedOption !== null) {
+      navigate("/Dashboar");
+    } else {
+      alert("Por favor selecciona una opción antes de confirmar.");
+    }
+  }
+
   return (
     <div className="rp-cont">
       <header>
@@ -34,6 +45,7 @@ const MoodMonitoring = () => {
             className="radio-button"
             type="radio"
             name="radio"
+            onChange={handleOptionChange}
           />
           <div className="radio-tile">
             <div className="face">
@@ -43,7 +55,7 @@ const MoodMonitoring = () => {
                 className="svg-image"
               />
             </div>
-            <label htmlFor="walk" className="radio-tile-label">
+            <label htmlFor="face1" className="radio-tile-label">
               Muy Bueno
             </label>
           </div>
@@ -51,16 +63,17 @@ const MoodMonitoring = () => {
 
         <div className="input-container">
           <input
-            id="face1"
+            id="face2"
             className="radio-button"
             type="radio"
             name="radio"
+            onChange={handleOptionChange}
           />
           <div className="radio-tile">
             <div className="face">
               <img src="./src/image/face2.svg" alt="Face 2" />
             </div>
-            <label htmlFor="walk" className="radio-tile-label">
+            <label htmlFor="face2" className="radio-tile-label">
               Bueno
             </label>
           </div>
@@ -68,16 +81,17 @@ const MoodMonitoring = () => {
 
         <div className="input-container">
           <input
-            id="face1"
+            id="face3"
             className="radio-button"
             type="radio"
             name="radio"
+            onChange={handleOptionChange}
           />
           <div className="radio-tile">
             <div className="face">
               <img src="./src/image/face3.svg" alt="Face 3" />
             </div>
-            <label htmlFor="walk" className="radio-tile-label">
+            <label htmlFor="face3" className="radio-tile-label">
               Regular
             </label>
           </div>
@@ -85,16 +99,17 @@ const MoodMonitoring = () => {
 
         <div className="input-container">
           <input
-            id="face1"
+            id="face4"
             className="radio-button"
             type="radio"
             name="radio"
+            onChange={handleOptionChange}
           />
           <div className="radio-tile">
             <div className="face">
               <img src="./src/image/face4.svg" alt="Face 4" />
             </div>
-            <label htmlFor="walk" className="radio-tile-label">
+            <label htmlFor="face4" className="radio-tile-label">
               Malo
             </label>
           </div>
@@ -106,6 +121,7 @@ const MoodMonitoring = () => {
             className="radio-button"
             type="radio"
             name="radio"
+            onChange={handleOptionChange}
           />
           <div className="radio-tile">
             <div className="face">
@@ -118,13 +134,10 @@ const MoodMonitoring = () => {
         </div>
       </div>
 
-      <button
-        onClick={() => {
-          navigate("/Dashboar");
-        }}
-      >
+      <button onClick={handleConfirmarRespuesta}>
         Confirmar Respuesta
       </button>
+
     </div>
   );
 };
