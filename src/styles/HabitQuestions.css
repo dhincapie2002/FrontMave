@@ -42,25 +42,22 @@ h1 {
   display: flex;
   flex-direction: column;
   padding: 8px; /* Reducir el relleno */
-  margin: 8px; /* Añadir margen */
+  margin: 8px auto; /* Añadir margen */
   background: #60C8B3;
   color: #1B5091;
   border-radius: 10px;
-  width: 420px;
+  width: 20vh;
 }
 
 .radio-input label {
-  display: flex;
-  background-color: #fff;
-  padding: 12px; /* Reducir el relleno */
   margin: 4px 0; /* Ajustar el margen */
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 20px;
   border-radius: 10px;
   cursor: pointer;
   border: 1px solid rgba(187, 187, 187, 0.164);
   color: #1B5091;
   transition: 0.3s ease;
+  justify-content: center; 
 }
 
 .radio-input label:hover {
