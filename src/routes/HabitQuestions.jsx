@@ -6,7 +6,7 @@ import QuestionsForHabits from "../components/PreguntasHabitos/QuestionsForHabit
 
 const HabitQuestions = () => {
   // Estados de la aplicación
-  const [preguntaActual, setPreguntaActual] = useState(null);
+  const [indicePreguntaActual, setIndicePreguntaActual] = useState(0);
   const [respuestas, setRespuestas] = useState([]);
   const [respuestaSeleccionada, setRespuestaSeleccionada] = useState(null);
   const [respuestaConfirmada, setRespuestaConfirmada] = useState(false);
@@ -27,17 +27,7 @@ const HabitQuestions = () => {
     { pregunta: "¿Qué tanto tiempo le dedicaste a tu hobbie hoy?", tipo: "puntuacion" },
     { pregunta: "¿Qué tanto tiempo le dedicaste a tus vicios hoy?", tipo: "puntuacion" }
   ];
-
-  // Función para elegir una pregunta aleatoria
-  const elegirPreguntaAleatoria = () => {
-    const indiceAleatorio = Math.floor(Math.random() * preguntas.length);
-    setPreguntaActual(preguntas[indiceAleatorio]);
-  };
-
-  // Elegir una pregunta aleatoria al cargar el componente
-  useEffect(() => {
-    elegirPreguntaAleatoria();
-  }, []);
+  ;
 
   // Función para manejar la selección de respuesta
   const handleSeleccionRespuesta = (respuesta) => {
@@ -49,25 +39,10 @@ const HabitQuestions = () => {
     setRespuestas([...respuestas, respuestaSeleccionada]);
     setRespuestaSeleccionada(null);
     setRespuestaConfirmada(true);
-  };
-
-  // Función para reiniciar el proceso de preguntas
-  const reiniciarProceso = () => {
-    setRespuestaConfirmada(false);
-    elegirPreguntaAleatoria();
-  };
-
-  // Renderiza la pregunta actual
-  const renderPreguntaActual = () => {
-    return (
-      <div>
-        <QuestionsForHabits
-          pregunta={preguntaActual}
-          onRespuesta={handleSeleccionRespuesta}
-          mostrarBoton={respuestaSeleccionada !== null && !respuestaConfirmada}
-        />
-      </div>
-    );
+    if (indicePreguntaActual < preguntas.length - 1) {
+      setIndicePreguntaActual(indicePreguntaActual + 1);
+      setRespuestaConfirmada(false);
+    }
   };
 
   // Renderizar mensaje de agradecimiento
@@ -81,17 +56,17 @@ const HabitQuestions = () => {
 
   return (
     <div>
-      {preguntaActual && !respuestaConfirmada && (
+      {indicePreguntaActual < preguntas.length && !respuestaConfirmada && (
         <div>
           <QuestionsForHabits
-            pregunta={preguntaActual}
+            pregunta={preguntas[indicePreguntaActual]}
             onRespuesta={handleSeleccionRespuesta}
             mostrarBoton={respuestaSeleccionada !== null && !respuestaConfirmada}
             onConfirmarRespuesta={handleConfirmarRespuesta}
           />
         </div>
       )}
-      {respuestaConfirmada && renderMensajeAgradecimiento()}
+      {indicePreguntaActual === preguntas.length - 1 && respuestaConfirmada && renderMensajeAgradecimiento()}
     </div>
   );
 };
