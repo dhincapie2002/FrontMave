@@ -8,8 +8,7 @@ const cook = new Cookies()
 let id = cook.get('id')
 
 export async function MoodScore(data){
-    return await axios.post('${URL}/Mood/SetMood/${id}',{
-        date: data.date, 
+    return await axios.post('${URL}/Mood/SetMood/${id}',{ 
         score : data.opcion
     }, 
     {
