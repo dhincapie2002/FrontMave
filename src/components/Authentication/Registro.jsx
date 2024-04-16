@@ -21,7 +21,7 @@ const Registro = () => {
 
   if (mutacion.isSuccess) {
     // console.log(mutacion.data.data.location)
-    let usuario = mutacion.data.data.id
+    let usuario = mutacion.data.data.Id
     // se crea una cookie con el id de usuario 
     cook.set('id', usuario, { path: '/' })
 

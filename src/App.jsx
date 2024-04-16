@@ -21,7 +21,7 @@ const App = () => {
         {/** ruta para enlace a cambio de password */}
         <Route path="/ResetPassword" element={<Reset />} />
         {/** ruta para enlace a cambio de password */}
-        <Route path="/Dashboard" element={<Dashboar />} /> {/* Corrige la ruta a Dashboard */}
+        <Route path="/Dashboar" element={<Dashboar />} /> {/* Corrige la ruta a Dashboard */}
         {/** ruta para enlace a el dashboard */}
         <Route path='/Encuesta' element={<InitialQuestions />} />
         {/** ruta para la encuesta inicial*/}
