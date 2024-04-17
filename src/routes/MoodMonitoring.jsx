@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import "../styles/MoodMonitoring.css";
 import Cookies from "universal-cookie";
+import Swal from 'sweetalert2';
 
 const MoodMonitoring = () => {
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState(null);
 
-  const cookie = new Cookies();
+ const cookie = new Cookies();
 
   // Session de usuario
   const cook = cookie.get('id')
@@ -23,9 +24,18 @@ const MoodMonitoring = () => {
   
   const handleConfirmarRespuesta = () => {
     if (selectedOption !== null) {
+      Swal.fire({
+        title: 'Respuesta guardada',
+        icon: 'success',
+        confirmButtonColor: '#1B5091',
+      });
       navigate("/Dashboar");
     } else {
-      alert("Por favor selecciona una opción antes de confirmar.");
+      Swal.fire({
+        title: 'Por favor selecciona una opción antes de confirmar.',
+        icon: 'info',
+        confirmButtonColor: '#1B5091',
+      });
     }
   }
 
@@ -50,7 +60,7 @@ const MoodMonitoring = () => {
           <div className="radio-tile">
             <div className="face">
               <img
-                src="./src/image/face1.svg"
+                src="./src/image/MoodMonitoring/face1.svg"
                 alt="Face 1"
                 className="svg-image"
               />
@@ -71,7 +81,7 @@ const MoodMonitoring = () => {
           />
           <div className="radio-tile">
             <div className="face">
-              <img src="./src/image/face2.svg" alt="Face 2" />
+              <img src="./src/image/MoodMonitoring/face2.svg" alt="Face 2" />
             </div>
             <label htmlFor="face2" className="radio-tile-label">
               Bueno
@@ -89,7 +99,7 @@ const MoodMonitoring = () => {
           />
           <div className="radio-tile">
             <div className="face">
-              <img src="./src/image/face3.svg" alt="Face 3" />
+              <img src="./src/image/MoodMonitoring/face3.svg" alt="Face 3" />
             </div>
             <label htmlFor="face3" className="radio-tile-label">
               Regular
@@ -107,7 +117,7 @@ const MoodMonitoring = () => {
           />
           <div className="radio-tile">
             <div className="face">
-              <img src="./src/image/face4.svg" alt="Face 4" />
+              <img src="./src/image/MoodMonitoring/face4.svg" alt="Face 4" />
             </div>
             <label htmlFor="face4" className="radio-tile-label">
               Malo
@@ -125,7 +135,7 @@ const MoodMonitoring = () => {
           />
           <div className="radio-tile">
             <div className="face">
-              <img src="./src/image/face5.svg" alt="Face 5" />
+              <img src="./src/image/MoodMonitoring/face5.svg" alt="Face 5" />
             </div>
             <label htmlFor="walk" className="radio-tile-label">
               Muy Malo
