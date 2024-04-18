@@ -27,7 +27,7 @@ const App = () => {
         {/** ruta para la encuesta inicial*/}
         <Route path="/MoodMonitoring" element={<MoodMonitoring />} />
         {/** ruta para el seguimiento animico*/}
-        <Route path="/HabitQuestions" element={<HabitQuestions />} />
+        <Route path="/Habitos" element={<HabitQuestions />} />
         {/** ruta para las preguntas de hábitos */}
         <Route path="/QuestionsForHabits" element={<QuestionsForHabits />} />
         {/** ruta para el componente QuestionsForHabits */}
