@@ -39,7 +39,7 @@ function PreguntasUser({ segundosAMinutos, tiempoRestante }) {
       });
     }
   };
-
+ 
   return (
     <div>
       <div className="radio-input">
