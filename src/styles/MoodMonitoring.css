@@ -20,9 +20,9 @@
     box-shadow: 0 5px 15px #c9d6ff;
     position: relative;
     overflow: hidden;
-    width: 900px;
+    width: 110vh;
     max-width: 100%;
-    min-height: 520px;
+    min-height: 70vh;
     font-family: "Lilita One", sans-serif;
     display: flex;
     flex-direction: column;
