@@ -14,7 +14,7 @@ function PreguntasUser({ segundosAMinutos, tiempoRestante }) {
       icon: 'success',
       confirmButtonColor: '#1B5091',
     });
-    navigate("/Dashboar");
+    navigate("/Dashboard");
   }
 
   const handleSeleccionRespuesta = (opcion) => {
