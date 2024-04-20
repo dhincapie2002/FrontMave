@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { preguntas } from "../../../assets/data/preguntas";
 import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 function PreguntasUser({ segundosAMinutos, tiempoRestante }) {
   const navigate = useNavigate();
@@ -8,8 +9,12 @@ function PreguntasUser({ segundosAMinutos, tiempoRestante }) {
   const [respuestas, setRespuestas] = useState(new Array(24).fill(null));
 
   function Terminar() {
-    alert("Has finalizado el test inicial con éxito. :D");
-    navigate("/Dashboar");
+    Swal.fire({
+      title: 'Has finalizado el test inicial',
+      icon: 'success',
+      confirmButtonColor: '#1B5091',
+    });
+    navigate("/Dashboard");
   }
 
   const handleSeleccionRespuesta = (opcion) => {
@@ -27,10 +32,14 @@ function PreguntasUser({ segundosAMinutos, tiempoRestante }) {
         Terminar();
       }
     } else {
-      alert("Por favor selecciona una respuesta antes de continuar.");
+      Swal.fire({
+        title: 'Por favor selecciona una respuesta antes de continuar',
+        icon: 'info',
+        confirmButtonColor: '#1B5091',
+      });
     }
   };
-
+ 
   return (
     <div>
       <div className="radio-input">

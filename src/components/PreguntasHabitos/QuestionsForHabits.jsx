@@ -1,49 +1,70 @@
-import React from "react";
+import React, { useState } from "react";
 
-const QuestionsForHabits = ({ pregunta, onRespuesta }) => {
-  const handleRespuesta = (respuesta) => {
-    onRespuesta(respuesta);
+const QuestionsForHabits = ({ pregunta, onRespuesta, onConfirmar, esUltimaPregunta }) => {
+  const [respuestaSeleccionada, setRespuestaSeleccionada] = useState(null);
+
+  const handleSeleccionRespuesta = (respuesta) => {
+    setRespuestaSeleccionada(respuesta);
+  };
+
+  const handleConfirmar = () => {
+    if (respuestaSeleccionada !== null) {
+      onRespuesta(respuestaSeleccionada);
+      onConfirmar();
+      setRespuestaSeleccionada(null); // Reinicia la respuesta seleccionada
+    }
   };
 
   return (
-    <div className="rp-cont">
+    <div className="habit-questions-container"> 
+      <h1>Test de Hábitos</h1>
+      <p>Una serie de preguntas sobre hábitos es una consulta breve que te ayuda a reflexionar sobre tus acciones diarias <br></br>relacionadas a aspectos de tu vida. Para responderla, simplemente elige una opción que mejor describa <br></br> tu comportamiento o hábito del día, puede ser una calificación del 1 al 5 o una respuesta de Si o No.</p>
       <h2 className="question">{pregunta.pregunta}</h2>
-      {pregunta.tipo === "puntuacion" ? (
-        <div className="radio-input">
-          {[1, 2, 3, 4, 5].map((opcion) => (
-            <label key={opcion}>
+      <div className="radio-input">
+        {pregunta.tipo === "puntuacion" ? (
+          [1, 2, 3, 4, 5].map((opcion) => (
+            <label key={opcion} className="radio-option">
               <input
                 type="radio"
+                id={`opcion-${opcion}`}
                 name="respuesta"
                 value={opcion}
-                onChange={() => handleRespuesta(opcion)}
+                checked={respuestaSeleccionada === opcion}
+                onChange={() => handleSeleccionRespuesta(opcion)}
               />
-              {opcion}
+              <span className="option-text">{opcion}</span>
             </label>
-          ))}
-        </div>
-      ) : (
-        <div className="radio-input">
-          <label>
-            <input
-              type="radio"
-              name="respuesta"
-              value="si"
-              onChange={() => handleRespuesta("si")}
-            />
-            Sí
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="respuesta"
-              value="no"
-              onChange={() => handleRespuesta("no")}
-            />
-            No
-          </label>
-        </div>
-      )}
+          ))
+        ) : (
+          <>
+            <label className="radio-option">
+              <input
+                type="radio"
+                id="respuesta-si"
+                name="respuesta"
+                value="si"
+                checked={respuestaSeleccionada === "si"}
+                onChange={() => handleSeleccionRespuesta("si")}
+              />
+              <span className="option-text">Sí</span>
+            </label>
+            <label className="radio-option">
+              <input
+                type="radio"
+                id="respuesta-no"
+                name="respuesta"
+                value="no"
+                checked={respuestaSeleccionada === "no"}
+                onChange={() => handleSeleccionRespuesta("no")}
+              />
+              <span className="option-text">No</span>
+            </label>
+          </>
+        )}
+      </div>
+      <button onClick={handleConfirmar}>
+        {esUltimaPregunta ? "Finalizar" : "Confirmar Respuesta"}
+      </button>
     </div>
   );
 };

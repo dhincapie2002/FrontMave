@@ -5,6 +5,7 @@ import Cookies from "universal-cookie"; // °° para validar si esta o no logead
 import { preguntas } from "../assets/data/preguntas";
 import Instrucciones from "../components/DashboarInicio/Encuesta/Instrucciones";
 import PreguntasUser from "../components/DashboarInicio/Encuesta/PreguntasUser";
+import Swal from 'sweetalert2';
 
 const InitialQuestions = () => {
   const navigate = useNavigate(); // °3°useNavigate para poder navegar entre pestañas
@@ -31,7 +32,12 @@ const InitialQuestions = () => {
       }, 1000);
     } else if (tiempoRestante === 0) {
       setTiempoFin(true);
-      alert("El tiempo finalizo, pero puedes seguir respondiendo el test");
+      Swal.fire({
+        title: 'El tiempo ha finalizado',
+        text: 'Pero puedes seguir respondiendo el test',
+        icon: 'warning',
+        confirmButtonColor: '#1B5091',
+      });
     }
     return () => clearInterval(intervalId);
   }, [cuestionarioIniciado, tiempoRestante]);
