@@ -1,0 +1,13 @@
+g.recharts-layer.recharts-pie {
+    width: 500px;
+    height: 600px;
+}
+
+.recharts-responsive-container {
+    width: 500px;
+    height: 600px;
+}
+
+#cont-graphic{
+    text-align: center;
+}

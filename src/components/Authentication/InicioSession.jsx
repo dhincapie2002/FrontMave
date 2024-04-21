@@ -28,7 +28,7 @@ const InicioSession = () => {
         cookie.set('id', usuario, { path: '/' })
 
         // Se envia a la ruta del dashboard con inicio de session 
-        navigate('/Dashboar')
+        navigate('/Dashboard')
     }
 
     const onSubmit = handleSubmit((data) => {
