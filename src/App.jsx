@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./routes/Login";
 import ResetPass from './routes/ResetPass';
 import NotFound from './routes/NotFound';
-import Dashboar from "./routes/Dashboar"; // Corrige la importación a Dashboar
+import Dashboard from "./routes/Dashboard"; // Corrige la importación a Dashboar
 import Reset from "./routes/Reset";
 import LogOut from "./routes/LogOut";
 import InitialQuestions from "./routes/InitialQuestions";
@@ -24,7 +24,7 @@ const App = () => {
         {/** ruta para enlace a cambio de password */}
         <Route path="/ResetPassword" element={<Reset />} />
         {/** ruta para enlace a cambio de password */}
-        <Route path="/Dashboard" element={<Dashboar />} /> {/* Corrige la ruta a Dashboard */}
+        <Route path="/Dashboard" element={<Dashboard />} /> {/* Corrige la ruta a Dashboard */}
         {/** ruta para enlace a el dashboard */}
         <Route path='/Encuesta' element={<InitialQuestions />} />
         {/** ruta para la encuesta inicial*/}

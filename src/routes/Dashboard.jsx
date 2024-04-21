@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 import Swal from "sweetalert2";
-import "../styles/Dashboar.css";
+import "../styles/Dashboard.css";
 
-function Dashboar() {
+function Dashboard() {
   const navigate = useNavigate();
   /*const cookie = new Cookies();
   const cook = cookie.get('id')
@@ -48,21 +48,21 @@ function Dashboar() {
       <div id="space">
         {/* <Link to="/Dashboard">
           <button className="space-option">
-            <img src="./src/image/Dashboar/Mindfulness.svg" className="option-icon" />
+            <img src="./src/image/Dashboard/Mindfulness.svg" className="option-icon" />
             <label> Mindfulness </label>
           </button>
         </Link>
 
         <Link to="/Dashboard">
           <button className="space-option">
-            <img src="./src/image/Dashboar/Know.svg" className="option-icon" />
+            <img src="./src/image/Dashboard/Know.svg" className="option-icon" />
             <label> Saber Más </label>
           </button>
   </Link> 
 */}
         <Link to="/MoodMonitoring">
           <button className="space-option">
-            <img src="./src/image/Dashboar/Mood.svg" className="option-icon" />
+            <img src="./src/image/Dashboard/Mood.svg" className="option-icon" />
             <label>
               {" "}
               Seguimiento <br></br> Anímico{" "}
@@ -81,4 +81,4 @@ function Dashboar() {
   );
 }
 
-export default Dashboar;
+export default Dashboard;
