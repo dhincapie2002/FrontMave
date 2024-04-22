@@ -3,6 +3,7 @@ import Cookies from "universal-cookie"; // °° para validar si esta o no logead
 import { Link, NavLink, useNavigate } from "react-router-dom"; 
 import "../styles/HabitQuestions.css";
 import QuestionsForHabits from "../components/PreguntasHabitos/QuestionsForHabits";
+import { SendHabitScore } from "../hooks/Question";
 import Swal from "sweetalert2";
 
 const HabitQuestions = () => {
@@ -45,6 +46,8 @@ const HabitQuestions = () => {
 
   // Función para finalizar la prueba y enviar las respuestas
   const finalizarPrueba = () => {
+    //hacer la mutacion y enviar los datos a el back 
+    mutacion.mutate(respuestas)
     // Aquí puedes hacer lo que necesites con el arreglo de respuestas
     Swal.fire({
       title: 'Has finalizado el test inicial',
@@ -53,7 +56,10 @@ const HabitQuestions = () => {
       backdrop: "linear-gradient(to right, #60C8B3, #1B5091)", 
     });
     console.log("Respuestas:", respuestas);
+    // Subir los datos del formulario a la api
+
   };
+  const mutacion = SendHabitScore()
 
   // Función para confirmar la respuesta y avanzar a la siguiente pregunta
   const handleConfirmar = () => {
