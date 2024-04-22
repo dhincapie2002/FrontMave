@@ -55,7 +55,7 @@ function PreguntasUser({ segundosAMinutos, tiempoRestante }) {
           </span>
         </div>
         <div className="info">
-          <span className="question">Pregunta</span>
+          <span className="question">¿Con que opcion te idenificas? </span>
           <span className="steps">{preguntaActual}/24</span>
         </div>
         {preguntas[preguntaActual].opciones.map((opcion, index) => (

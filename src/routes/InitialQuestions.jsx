@@ -12,13 +12,13 @@ const InitialQuestions = () => {
   const cookie = new Cookies(); // °° para validar si esta o no logeado
 
   // Session de usuario
-  const cook = cookie.get('id')
-  useEffect(() => {
-    if (!cook) {
-      navigate('/time-out')
-    }
-  }, [])
-
+  //const cook = cookie.get('id')
+  //useEffect(() => {
+  //  if (!cook) {
+  //    navigate('/time-out')
+  //  }
+  //}, [])
+//
   //Estados de la application
   const [cuestionarioIniciado, setCuestionarioIniciado] = useState(false);
   const [tiempoRestante, setTiempoRestante] = useState(900); // 900 15 minutos en segundos
