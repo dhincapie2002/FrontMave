@@ -8,6 +8,30 @@ g.recharts-layer.recharts-pie {
     height: 600px;
 }
 
-#cont-graphic{
+#cont-graphic {
     text-align: center;
+}
+
+#face {
+    display: flex;
+    justify-content: center;
+    /* Alinea los elementos horizontalmente en el centro */
+    align-items: center;
+    /* Alinea los elementos verticalmente en el centro */
+}
+
+.image-container {
+    margin: 0 10px;
+    /* Agrega un margen entre las imágenes y sus descripciones */
+}
+.svg-image {
+height: auto; /* Altura automática para mantener la proporción */
+}
+
+.description {
+    color: white;
+}
+
+#h1-que{
+    margin-top: 2%;
 }

@@ -13,6 +13,7 @@ import QuestionsForHabits from "./components/PreguntasHabitos/QuestionsForHabits
 import Graphics from "./routes/Graphics";
   import GraphicsInitial from "./components/Graphics/GraphicsInitial";
   import GraphicsMood from "./components/Graphics/GraphicsMood";
+import Nav from "./components/Navbar";
 
 const App = () => {
   return (
@@ -45,6 +46,8 @@ const App = () => {
         {/** ruta para cerrar sesion */}
         <Route path='*' element={<NotFound />} />
         {/** ruta de manejo de error */}
+
+        <Route path='/Nav' element={<Nav />} />
       </Routes>
     </Router>
   )

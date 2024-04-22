@@ -31,30 +31,13 @@
     color: #1B5091;
 }
 
-header {
-    display: flex;
-    align-items: center; /* Alinea los elementos verticalmente */
-    font-weight: bold;
-    unicode-bidi: isolate;
-}
-
-.logo {
-    width: 55px;
-    height: auto;
-}
-
-.mave {
-    margin-left: 10px; /* Espacio entre el logo y el texto "MAVE" */
-    font-size: 1.1rem; /* Tamaño de fuente ajustable según sea necesario */
-}
-
-h1 {
-    margin-bottom: 10px; /* Reducir el margen inferior del h1 */
+#h1-seguimiento {
+    margin-top: 5%;
 }
 
 h2 {
-    margin-top: 0; /* Establecer el margen superior del h2 a 0 para reducir el espacio */
     align-items: center;
+    margin-bottom: 7%;
 }
 
 h3 {
@@ -63,7 +46,7 @@ h3 {
 }
 
 button{
-  margin-top: 20px;
+  margin-top: 10%;
 }
 
 p{
@@ -112,6 +95,7 @@ p{
     border-radius: 5px;
     padding: 1rem;
     transition: transform 300ms ease;
+    margin-top: 20%;
   }
   
   .radio-tile-group .input-container .icon svg {

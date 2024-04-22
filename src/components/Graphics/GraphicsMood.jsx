@@ -1,6 +1,7 @@
 import React from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import "../../styles/GraphicsMood.css";
+import Navbar from "../../components/Navbar";
 
 function GraphicsMood() {
   const data = [
@@ -43,39 +44,52 @@ function GraphicsMood() {
   return (
     <div id="cont-graphic">
       <div>
-        <header className="header-print">
-          <img src="./src/assets/logo.svg" alt="Logo" className="logo-print" />
-          <span className="mave-print">MAVE</span>
-        </header>
+      <Navbar />
       </div>
-      <h1>Que tal tus emociones</h1>
+      <h1 id="h1-que">Que Tal Tus Dias</h1>
       <div id="face">
-        <img
-          src="./src/image/Graphics/face1.svg"
-          alt="Face 1"
-          className="svg-image"
-        />
-        <img
-          src="./src/image/Graphics/face2.svg"
-          alt="Face 2"
-          className="svg-image"
-        />
-        <img
-          src="./src/image/Graphics/face3.svg"
-          alt="Face 3"
-          className="svg-image"
-        />
-        <img
-          src="./src/image/Graphics/face4.svg"
-          alt="Face 4"
-          className="svg-image"
-        />
-        <img
-          src="./src/image/Graphics/face5.svg"
-          alt="Face 5"
-          className="svg-image"
-        />
+        <div className="image-container">
+          <img
+            src="./src/image/Graphics/face1.svg"
+            alt="Face 1"
+            className="svg-image"
+          />
+          <div className="description">Muy Bueno</div>
+        </div>
+        <div className="image-container">
+          <img
+            src="./src/image/Graphics/face2.svg"
+            alt="Face 2"
+            className="svg-image"
+          />
+          <div className="description">Bueno</div>
+        </div>
+        <div className="image-container">
+          <img
+            src="./src/image/Graphics/face3.svg"
+            alt="Face 3"
+            className="svg-image"
+          />
+          <div className="description">Regular</div>
+        </div>
+        <div className="image-container">
+          <img
+            src="./src/image/Graphics/face4.svg"
+            alt="Face 4"
+            className="svg-image"
+          />
+          <div className="description">Malo</div>
+        </div>
+        <div className="image-container">
+          <img
+            src="./src/image/Graphics/face5.svg"
+            alt="Face 5"
+            className="svg-image"
+          />
+          <div className="description">Muy Malo</div>
+        </div>
       </div>
+
       <ResponsiveContainer width="100%" height={300}>
         <PieChart>
           <Pie
@@ -84,7 +98,7 @@ function GraphicsMood() {
             cy="48%"
             labelLine={false}
             label={renderCustomizedLabel}
-            outerRadius={140}
+            outerRadius={138}
             fill="#8884d8"
             dataKey="value"
           >

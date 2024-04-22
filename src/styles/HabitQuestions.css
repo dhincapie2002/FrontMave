@@ -14,7 +14,7 @@
   overflow: hidden;
   width: 950px;
   max-width: 100%;
-  min-height: 720px;
+  min-height: 550px;
   font-family: "Lilita One", sans-serif;
   display: flex;
   flex-direction: column;
@@ -25,27 +25,26 @@
 
 .habit-questions-container h1 {
   font-size: 1.5rem;
-  margin-bottom: 20px;
 }
 
 .habit-questions-container .question {
   font-size: 1.2rem;
   font-weight: 800;
+  margin: 0;
 }
 
 .habit-questions-container .radio-input {
   display: flex;
-  flex-direction: column;
-  padding: 8px;
-  margin: 8px auto;
+  flex-direction: row;
   background: #60C8B3;
   color: #1B5091;
   border-radius: 10px;
-  width: 20vh;
+  width: auto;
 }
 
 .habit-questions-container .radio-input label {
-  margin: 4px 0;
+  width: 60px;
+  margin-left: 8px;
   font-size: 20px;
   border-radius: 10px;
   cursor: pointer;
@@ -76,13 +75,12 @@
   font-weight: 600;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  margin-top: 10px;
+  margin-top: 0px;
   cursor: pointer;
   font-family: 'Lilita One', Times, serif;
 }
 
 .habit-questions-container .radio-input .radio-option {
-  display: flex;
   align-items: center;
 }
 
@@ -107,6 +105,9 @@
 .habit-questions-container .radio-input input[type="radio"]:checked + .option-text {
   background-color: #E881A6;
   color: #f7f7f7;
+  padding-left:50% ;
+  padding-right: 50%;
+  
 }
 
 .boton-finalizar {
@@ -119,7 +120,7 @@
   font-weight: 600;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  margin-top: 10px;
+  margin-top: 0px;
   cursor: pointer;
   font-family: 'Lilita One', Times, serif;
 }

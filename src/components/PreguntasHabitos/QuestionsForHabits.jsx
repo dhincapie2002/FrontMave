@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Navbar from "../Navbar";
+import Swal from "sweetalert2";
 
 const QuestionsForHabits = ({ pregunta, onRespuesta, onConfirmar, esUltimaPregunta }) => {
   const [respuestaSeleccionada, setRespuestaSeleccionada] = useState(null);
@@ -12,11 +14,19 @@ const QuestionsForHabits = ({ pregunta, onRespuesta, onConfirmar, esUltimaPregun
       onRespuesta(respuestaSeleccionada);
       onConfirmar();
       setRespuestaSeleccionada(null); // Reinicia la respuesta seleccionada
+    }else{
+      Swal.fire({
+        title: 'Por favor selecciona una respuesta antes de continuar',
+        icon: 'info',
+        confirmButtonColor: '#1B5091',
+        backdrop: "linear-gradient(to right, #60C8B3, #1B5091)", 
+      });
     }
   };
 
   return (
     <div className="habit-questions-container"> 
+      <Navbar/>
       <h1>Test de Hábitos</h1>
       <p>Una serie de preguntas sobre hábitos es una consulta breve que te ayuda a reflexionar sobre tus acciones diarias <br></br>relacionadas a aspectos de tu vida. Para responderla, simplemente elige una opción que mejor describa <br></br> tu comportamiento o hábito del día, puede ser una calificación del 1 al 5 o una respuesta de Si o No.</p>
       <h2 className="question">{pregunta.pregunta}</h2>
