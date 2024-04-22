@@ -42,9 +42,9 @@ const QuestionsForHabits = ({ pregunta, onRespuesta, onConfirmar, esUltimaPregun
                 type="radio"
                 id="respuesta-si"
                 name="respuesta"
-                value="si"
+                value={6}
                 checked={respuestaSeleccionada === "si"}
-                onChange={() => handleSeleccionRespuesta("si")}
+                onChange={() => handleSeleccionRespuesta(7)}
               />
               <span className="option-text">Sí</span>
             </label>
@@ -53,9 +53,9 @@ const QuestionsForHabits = ({ pregunta, onRespuesta, onConfirmar, esUltimaPregun
                 type="radio"
                 id="respuesta-no"
                 name="respuesta"
-                value="no"
+                value={7}
                 checked={respuestaSeleccionada === "no"}
-                onChange={() => handleSeleccionRespuesta("no")}
+                onChange={() => handleSeleccionRespuesta(7)}
               />
               <span className="option-text">No</span>
             </label>

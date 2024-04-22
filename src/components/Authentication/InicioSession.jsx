@@ -22,13 +22,14 @@ const InicioSession = () => {
     // Se verifica que el usuario exista
     if (mutacion.isSuccess) {
         // 
-        let usuario = mutacion.data.data.id
+        let usuario = mutacion.data.data.Id
 
         // se crea una cookie con el id de usuario 
         cookie.set('id', usuario, { path: '/' })
 
         // Se envia a la ruta del dashboard con inicio de session 
-        navigate('/Dashboar')
+        window.location = '/dashboard'
+        
     }
 
     const onSubmit = handleSubmit((data) => {

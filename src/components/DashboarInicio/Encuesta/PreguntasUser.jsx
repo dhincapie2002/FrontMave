@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { preguntas } from "../../../assets/data/preguntas";
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
+import { SendQuestionIni } from "../../../hooks/Question";
 
 function PreguntasUser({ segundosAMinutos, tiempoRestante }) {
   const navigate = useNavigate();
@@ -9,13 +10,18 @@ function PreguntasUser({ segundosAMinutos, tiempoRestante }) {
   const [respuestas, setRespuestas] = useState(new Array(24).fill(null));
 
   function Terminar() {
-    Swal.fire({
-      title: 'Has finalizado el test inicial',
-      icon: 'success',
-      confirmButtonColor: '#1B5091',
-    });
+    mutacion.mutate(respuestas)
+      Swal.fire({
+        title: 'Has finalizado el test inicial',
+        icon: 'success',
+        confirmButtonColor: '#1B5091',
+      });
     navigate("/Dashboard");
+  
+    
   }
+
+  const mutacion = SendQuestionIni()
 
   const handleSeleccionRespuesta = (opcion) => {
     const nuevasRespuestas = [...respuestas];
@@ -58,9 +64,9 @@ function PreguntasUser({ segundosAMinutos, tiempoRestante }) {
               type="radio"
               id={`value-${index + 1}`}
               name={`value${preguntaActual}`}
-              value={`value-${index + 1}`}
+              value={String.fromCharCode(65+index)}
               checked={respuestas[preguntaActual - 1] === `value-${index + 1}`}
-              onClick={() => handleSeleccionRespuesta(`value-${index + 1}`)}
+              onClick={() => handleSeleccionRespuesta(String.fromCharCode(65+index))}
             />
             <label htmlFor={`value-${index + 1}`}>{opcion}</label>
           </div>

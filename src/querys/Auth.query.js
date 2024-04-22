@@ -9,7 +9,7 @@ export async function InicioUser(data) {
         email: data.mail,
         pass: data.password
     })
-    token = result.data.Authentication
+    token = result.data.Token
     return result
 }
 
@@ -22,7 +22,7 @@ export async function NuevoUser(data) {
         phone: data.telefono,
         password: data.pass
     })
-
-    token = result.data.Authentication
+    token = result.data.Token
+    localStorage.setItem('token', token);
     return result
 }

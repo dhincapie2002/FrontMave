@@ -29,7 +29,7 @@ const MoodMonitoring = () => {
         icon: 'success',
         confirmButtonColor: '#1B5091',
       });
-      navigate("/Dashboar");
+      navigate("/Dashboard");
     } else {
       Swal.fire({
         title: 'Por favor selecciona una opción antes de confirmar.',

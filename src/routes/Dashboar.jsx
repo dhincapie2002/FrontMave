@@ -46,7 +46,7 @@ function Dashboar() {
       </header>
 
       <div id="space">
-        <Link to="/Dashboar">
+        <Link to="/Dashboard">
           <button className="space-option">
             <img
               src="./src/image/Dashboar/Mindfulness.svg"
@@ -56,7 +56,7 @@ function Dashboar() {
           </button>
         </Link>
 
-        <Link to="/Dashboar">
+        <Link to="/Dashboard">
           <button className="space-option">
             <img src="./src/image/Dashboar/Know.svg" className="option-icon" />
             <label> Saber Más </label>
