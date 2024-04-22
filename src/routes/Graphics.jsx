@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import "../styles/Graphics.css";
+import Navbar from "../components/Navbar";
 
 import Cookies from "universal-cookie";
 import Swal from "sweetalert2";
@@ -8,10 +9,7 @@ import Swal from "sweetalert2";
 const Graphics = () => {
   return (
     <div className="rp-cont">
-      <header>
-        <img src="./src/assets/logo.svg" alt="Logo" className="logo" />
-        <span className="mave">MAVE</span>
-      </header>
+      <Navbar />
       <h1>Graficas</h1>
       <div id="space-graphics">
         <Link to="/GraphicsInitial">

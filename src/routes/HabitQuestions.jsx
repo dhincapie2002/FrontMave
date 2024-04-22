@@ -4,13 +4,14 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import "../styles/HabitQuestions.css";
 import QuestionsForHabits from "../components/PreguntasHabitos/QuestionsForHabits";
 import { SendHabitScore } from "../hooks/Question";
+import Swal from "sweetalert2";
 
 const HabitQuestions = () => {
   // Estados de la aplicación
   const [preguntaActual, setPreguntaActual] = useState(0);
   const [respuestas, setRespuestas] = useState([]);
   const navigate = useNavigate(); // °3°useNavigate para poder navegar entre pestañas
-  const cookie = new Cookies(); // °° para validar si esta o no logeado
+  /*const cookie = new Cookies(); // °° para validar si esta o no logeado
 
   // Session de usuario
   const cook = cookie.get('id')
@@ -19,7 +20,7 @@ const HabitQuestions = () => {
       navigate('/time-out')
     }
   }, [])
-
+*/
     // Lista de preguntas
     const preguntas = [
       { pregunta: "¿Qué tan bien comiste hoy?", tipo: "puntuacion" },
@@ -48,6 +49,12 @@ const HabitQuestions = () => {
     //hacer la mutacion y enviar los datos a el back 
     mutacion.mutate(respuestas)
     // Aquí puedes hacer lo que necesites con el arreglo de respuestas
+    Swal.fire({
+      title: 'Has finalizado el test inicial',
+      icon: 'success',
+      confirmButtonColor: '#1B5091',
+      backdrop: "linear-gradient(to right, #60C8B3, #1B5091)", 
+    });
     console.log("Respuestas:", respuestas);
     // Subir los datos del formulario a la api
 
@@ -58,6 +65,7 @@ const HabitQuestions = () => {
   const handleConfirmar = () => {
     // Aquí puedes hacer cualquier acción que necesites al confirmar la respuesta
     setPreguntaActual(preguntaActual + 1);
+    
   };
 
   // Renderiza la pregunta actual

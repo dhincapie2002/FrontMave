@@ -15,6 +15,7 @@ function PreguntasUser({ segundosAMinutos, tiempoRestante }) {
         title: 'Has finalizado el test inicial',
         icon: 'success',
         confirmButtonColor: '#1B5091',
+        backdrop: "linear-gradient(to right, #60C8B3, #1B5091)",
       });
     navigate("/Dashboard");
   
@@ -42,6 +43,7 @@ function PreguntasUser({ segundosAMinutos, tiempoRestante }) {
         title: 'Por favor selecciona una respuesta antes de continuar',
         icon: 'info',
         confirmButtonColor: '#1B5091',
+        backdrop: "linear-gradient(to right, #60C8B3, #1B5091)",
       });
     }
   };
