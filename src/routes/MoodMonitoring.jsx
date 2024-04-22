@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import "../styles/MoodMonitoring.css";
 import Cookies from "universal-cookie";
 import Swal from 'sweetalert2';
+import Navbar from "../components/Navbar";
 
 const MoodMonitoring = () => {
   const navigate = useNavigate();
@@ -28,6 +29,7 @@ const MoodMonitoring = () => {
         title: 'Respuesta guardada',
         icon: 'success',
         confirmButtonColor: '#1B5091',
+        backdrop: "linear-gradient(to right, #60C8B3, #1B5091)", 
       });
       navigate("/Dashboard");
     } else {
@@ -35,17 +37,16 @@ const MoodMonitoring = () => {
         title: 'Por favor selecciona una opción antes de confirmar.',
         icon: 'info',
         confirmButtonColor: '#1B5091',
+        backdrop: "linear-gradient(to right, #60C8B3, #1B5091)", 
       });
     }
   }
 
   return (
     <div className="rp-cont">
-      <header>
-        <img src="./src/assets/logo.svg" alt="Logo" className="logo" />
-        <span className="mave">MAVE</span>
-      </header>
-      <h1>Seguimiento ánimico</h1>
+      <Navbar />
+      
+      <h1 id="h1-seguimiento">Seguimiento ánimico</h1>
       <h2> ¿Cómo calificarías tu ánimo el día de hoy? </h2>
       <p>Por favor da clic en la cara que más represente tu estado de ánimo a lo largo del día, después da clic en el botón <br/> "Confirmar respuesta" </p>
       <div className="radio-tile-group">

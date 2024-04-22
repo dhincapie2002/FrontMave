@@ -1,11 +1,19 @@
+#mave {
+    margin-top: 2%;
+    color: white;
+  }
+
 .navbar{
     background-color: #3991e9;
+    width: 98%;
+    min-width: 550px;
     height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 15px;
     box-shadow: 3px 3px 15px;
+    margin-top: 10px;
 }
 .Logo{
     box-shadow: 3px 3px 15px;

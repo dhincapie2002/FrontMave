@@ -3,32 +3,13 @@ header {
     justify-content: space-between;
     align-items: center;
   }
-  
-  #mave {
-    font-size: 65px;
-    margin-left: 20%;
-  }
-  
-  #bell {
-    margin-left: -5%; /* Ajustar el margen derecho del botón bell */
-    max-width: 10px;
-    border-radius: 100%;
-    background-color: transparent;
-  }
-  
-  #go-out {
-    margin-left: 5%;
-    max-width: 10px;
-    max-width: -10px;
-    border-radius: 100%;
-    background-color: transparent;
-  }
 
-#space {
+  #space {
+    position: relative;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
   
   .space-option {
     background-color: transparent;
