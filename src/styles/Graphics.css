@@ -1,0 +1,9 @@
+#space-graphics {
+    display: flex;
+    justify-content: center;
+  }
+  
+  #space-graphics .space-option {
+    margin-right: 20px;
+margin-left: 20px;
+  }

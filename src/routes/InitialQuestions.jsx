@@ -3,8 +3,8 @@ import { Link, NavLink, useNavigate } from "react-router-dom"; // °3°useNaviga
 import "../styles/InitialQuestions.css";
 import Cookies from "universal-cookie"; // °° para validar si esta o no logeado
 import { preguntas } from "../assets/data/preguntas";
-import Instrucciones from "../components/DashboarInicio/Encuesta/Instrucciones";
-import PreguntasUser from "../components/DashboarInicio/Encuesta/PreguntasUser";
+import Instrucciones from "../components/DashboardInicio/Encuesta/Instrucciones";
+import PreguntasUser from "../components/DashboardInicio/Encuesta/PreguntasUser";
 import Swal from 'sweetalert2';
 
 const InitialQuestions = () => {

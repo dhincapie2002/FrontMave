@@ -10,15 +10,14 @@ header {
   }
   
   #bell {
-    margin-left: 100px; /* Ajustar el margen derecho del botón bell */
+    margin-left: -5%; /* Ajustar el margen derecho del botón bell */
     max-width: 10px;
     border-radius: 100%;
     background-color: transparent;
   }
   
   #go-out {
-    margin-left: 20px;
-    margin-right: 20px; /* Ajustar el margen derecho del botón go-out */
+    margin-left: 5%;
     max-width: 10px;
     max-width: -10px;
     border-radius: 100%;
@@ -27,7 +26,7 @@ header {
 
 #space {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
   
@@ -40,16 +39,16 @@ header {
     align-items: center;
     justify-content: center; /* Centra tanto el texto como la imagen verticalmente */
     text-align: center;
-    width: 200px; /* Ancho fijo para todos los botones */
-    height: 160px; /* Altura fija para todos los botones */
+    width: 190px; /* Ancho fijo para todos los botones */
+    height: 140px; /* Altura fija para todos los botones */
     padding: 10px;
     box-shadow: none;
     transition: box-shadow 0.3s ease;
   }
   
   .option-icon {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 76px;
   }
   
   .space-option:hover,

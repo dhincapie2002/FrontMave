@@ -80,7 +80,7 @@ const HabitQuestions = () => {
       {preguntaActual < preguntas.length ? (
         renderPreguntaActual()
       ) : (
-        <Link to="/dashboard">
+        <Link to="/Dashboard">
           <button onClick={finalizarPrueba} className="boton-finalizar">Enviar respuestas y<br></br> volver al inicio</button>
         </Link>
       )}
