@@ -23,9 +23,12 @@ const InicioSession = () => {
     if (mutacion.isSuccess) {
         // 
         let usuario = mutacion.data.data.Id
+        let token = mutacion.data.data.Token
 
         // se crea una cookie con el id de usuario 
         cookie.set('id', usuario, { path: '/' })
+
+        cookie.set('token', token,{path: '/' });
 
         // Se envia a la ruta del dashboard con inicio de session 
         window.location = '/dashboard'
