@@ -6,7 +6,7 @@ const cook = new Cookies()
 
 
 export let IdUser = cook.get(`id`)
-const tokenA = localStorage.getItem('token');
+export let tokenA = cook.get(`token`)
 
 
 export async function SetInitialQuestions(data){

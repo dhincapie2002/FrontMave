@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import "../../styles/GraphicsMood.css";
 import Navbar from "../../components/Navbar";
+import Cookies from "universal-cookie";
+import { GetDataGraficsMood } from "../../querys/Grafics.query";
 
 function GraphicsMood() {
+  const cook = new Cookies()
+  let idUsuario = cook.get(`id`)
+  const {data:result} = GetDataGraficsMood(idUsuario)
+  console.log(result)
+
   const data = [
     { name: "face1", value: 1 },
     { name: "face2", value: 2 },
