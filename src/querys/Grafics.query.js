@@ -1,5 +1,5 @@
 import axios from "axios";
-import { URL, token } from "./Auth.query";
+import { URL } from "./Auth.query";
 import Cookies from "universal-cookie";
 
 const cook = new Cookies()
@@ -7,21 +7,23 @@ const cook = new Cookies()
 
 export let IdUser = cook.get(`id`)
 let tokenA = cook.get(`token`);
+
 export async function GetDataGraficsIni(id) {
-    const result = await axios.get(`${URL}/Mood/GetInitialGraphic/${id}`,
-{
-    headers:{
-        Authorization: `Bearer ${tokenA}`
-    }
-})
-return result;   
+    const result = await axios.get(`${URL}/Question/GetInitialGraphic/${id}`,
+        {
+            headers: {
+                Authorization: `Bearer ${tokenA}`
+            }
+        })
+    console.log(result)
+    return result;
 }
 export async function GetDataGraficsMood(id) {
     const result = await axios.get(`${URL}/Mood/GetMoodGraphic/${id}`,
-{
-    headers:{
-        Authorization: `Bearer ${tokenA}`
-    }
-})
-return result;   
+        {
+            headers: {
+                Authorization: `Bearer ${tokenA}`
+            }
+        })
+    return result;
 }

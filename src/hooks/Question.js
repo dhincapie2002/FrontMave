@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query'
-import { SetHabitQuestions, SetInitialQuestions } from "../querys/Question.query";
+import { SetHabbitScore, SetHabitQuestions, SetInitialQuestions } from "../querys/Question.query";
 
 export function SendQuestionIni() {
     return useMutation({
@@ -10,5 +10,11 @@ export function SendQuestionIni() {
 export function SendHabitScore() {
     return useMutation({
         mutationFn: async (data) => await SetHabitQuestions(data)
+    })
+}
+
+export function SendScoreHab() {
+    return useMutation({
+        mutationFn: async (data) => await SetHabbitScore(data)
     })
 }

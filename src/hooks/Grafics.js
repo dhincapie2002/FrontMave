@@ -1,7 +1,7 @@
 import {  useQuery } from '@tanstack/react-query'
 import { GetDataGraficsIni , GetDataGraficsMood} from '../querys/Grafics.query'
 
-export function GetGraficsIni() {
+export function GetGraficsIni(id) {
     return useQuery({
         queryKey: ['graficsIni'],
         queryFn: async()=> await GetDataGraficsIni(id)
