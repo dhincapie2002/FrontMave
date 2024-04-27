@@ -91,7 +91,7 @@ const Registro = () => {
             }
           })} />
         {errors.pass && <span className="alert">{errors.pass.message}</span>}
-        <span className="verPass" onClick={() => setVerPassword(!verPassword)}>{ verPassword ? 'close' : 'view' }</span>
+        <span className="verPass" onClick={() => setVerPassword(!verPassword)}>{ verPassword ? <img src="./src/image/icon/eyeClose.svg" alt="eye" className="eye"></img> : <img src="./src/image/icon/eyeOpen.svg" alt="eye" className="eye"></img> }</span>
       </div>
 
       <div className="caja">
@@ -103,7 +103,7 @@ const Registro = () => {
             }
           })} />
 
-        <span className="verPass" onClick={() => setConfPassword(!confPassword)}>{ confPassword ? 'close' : 'view' }</span>
+        <span className="verPass" onClick={() => setConfPassword(!confPassword)}>{ confPassword ? <img src="./src/image/icon/eyeClose.svg" alt="eye" className="eye"></img> : <img src="./src/image/icon/eyeOpen.svg" alt="eye" className="eye"></img> }</span>
         {errors.confpass && <span className="alert">{errors.confpass.message}</span>}
       </div>
 

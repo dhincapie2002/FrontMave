@@ -1,0 +1,62 @@
+#boton-ver {
+    background-color: #007bff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+  }
+
+  #article {
+    text-align: center;
+  }
+  
+  #imagen-articulo {
+    width: 45%;
+    height: 45%;
+    display: block;
+    margin: 2% auto;
+  }
+  
+  #date {
+    margin-top: 1%;
+  }
+  
+  #controles {
+    display: flex;
+    margin-top: -30px;
+    margin-bottom: 8px;
+    margin-right: 19.5%;
+  }
+  
+  #controles button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #controles button:hover {
+    background-color: #0056b3;
+  }
+
+  #num{
+    margin-top: 22%;
+    margin-left: 20%;
+    margin-right: 20% ;
+  }
+
+  #titulo{
+    margin-top: 7%;
+    margin-bottom: 2%;
+  }
+
+  #div-titulo {
+    min-height: 100px;
+    max-height: 100px; /* Establece la altura máxima del contenedor del título */
+    overflow: hidden; /* Oculta cualquier contenido que exceda la altura máxima */
+    margin-top: -5%;
+  }
