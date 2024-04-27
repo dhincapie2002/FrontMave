@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "../../styles/OneArticle.css"; // Archivo de estilos CSS
 import Navbar from "../Navbar";
+import { Link, useNavigate } from "react-router-dom";
 
 const OneArticle = () => {
+  const navigate = useNavigate();
   const articulosEjemplo = [
     {
       titulo: "Nuestra salud mental post Covid no es tan buena",
@@ -73,6 +75,10 @@ const OneArticle = () => {
       enlace: "https://psychcentral.com/ptsd/ptsd-overview",
     },
   ];
+
+  const handleNavigateToTexts = () => {
+    navigate("/Texts");
+  };
   const [indiceArticulo, setIndiceArticulo] = useState(0);
 
   
@@ -113,9 +119,10 @@ const OneArticle = () => {
       </div>
       <div id="controles">
         <button onClick={mostrarArticuloAnterior}>Anterior</button>
-        <div id="num">
+        <div id="num" onClick={handleNavigateToTexts}>
           <p>
             {numeroArticuloActual}/{totalArticulos}
+            <img src="../../src/image/icon/list.svg" alt="" id="list-oneArticle"/>
           </p>
         </div>
         <button onClick={mostrarSiguienteArticulo}>Siguiente</button>

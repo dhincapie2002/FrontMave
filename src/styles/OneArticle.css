@@ -47,6 +47,7 @@
     margin-top: 22%;
     margin-left: 20%;
     margin-right: 20% ;
+    cursor: pointer;
   }
 
   #titulo{
@@ -60,3 +61,6 @@
     overflow: hidden; /* Oculta cualquier contenido que exceda la altura máxima */
     margin-top: -5%;
   }
+#list-oneArticle{
+  margin-bottom: -60%;
+}

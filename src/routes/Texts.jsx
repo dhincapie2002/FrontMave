@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../styles/Texts.css"; // Archivo de estilos CSS
 import Navbar from "../components/Navbar";
+import { Link, useNavigate } from "react-router-dom";
 
 const Texts = () => {
   const articulosEjemplo = [
@@ -73,9 +74,12 @@ const Texts = () => {
       enlace: "https://psychcentral.com/ptsd/ptsd-overview",
     },
   ];
-
+  const navigate = useNavigate();
   const totalArticulos = articulosEjemplo.length;
 
+  const handleNavigateToOneArticle = () => {
+    navigate("/oneArticle");
+  };
   return (
     <div className="rp-cont">
       <Navbar />
@@ -85,15 +89,9 @@ const Texts = () => {
           {articulosEjemplo.map((articulo, index) => (
             <div key={index} className="cat-article">
               <div id="texts-uno">
-                <h2 id="titulo-variosm">{articulo.titulo}</h2>
-                <a
-                  href={articulo.enlace}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  id="boton-verm"
-                >
-                  Ir
-                </a>
+                <button id="btn-texts-uno" onClick={handleNavigateToOneArticle} >
+                  <h2 id="titulo-variosm">{articulo.titulo}</h2>
+                </button>
               </div>
             </div>
           ))}
