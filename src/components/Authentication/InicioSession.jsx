@@ -1,7 +1,7 @@
-import { useForm } from "react-hook-form";
+import { get, useForm } from "react-hook-form";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import '../../styles/alert.css'
-import { SessionInit } from "../../hooks/Authentications";
+import { GetUser, SessionInit } from "../../hooks/Authentications";
 import Cookies from "universal-cookie";
 import { useState } from "react";
 
@@ -18,6 +18,7 @@ const InicioSession = () => {
 
     // Llamada de mutacion
     const mutacion = SessionInit()
+    
 
     // Se verifica que el usuario exista
     if (mutacion.isSuccess) {
@@ -29,12 +30,14 @@ const InicioSession = () => {
         cookie.set('id', usuario, { path: '/' })
 
         cookie.set('token', token,{path: '/' });
-
-        // Se envia a la ruta del dashboard con inicio de session 
-        window.location = '/dashboard'
+        // Se envia a la ruta del dashboard con inicio de session
+        
+        window.location = `/dashboard`
+        
         
     }
-
+    
+    
     const onSubmit = handleSubmit((data) => {
         // Consulta de usuario que exista 
         mutacion.mutate(data)

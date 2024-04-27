@@ -4,7 +4,7 @@ import "../../styles/HeaderPrint.css";
 import ReactDOM from 'react-dom'
 import { GetGraficsIni } from "../../hooks/Grafics";
 import Cookies from "universal-cookie";
-
+import NavBar from "../Navbar"
 function GraphicsInitial() {
   const cook = new Cookies()
   let idUsuario = cook.get('id')
@@ -69,11 +69,11 @@ function GraphicsInitial() {
   }
 
   return (
-    <div>
-      <div>
+    <div className="todo">
+      <div className="Container">
+        <NavBar/>
         <header className="header-print">
-          <img src="./src/assets/logo.svg" alt="Logo" className="logo-print" />
-          <span className="mave-print">MAVE</span>
+          <span className="mave-print">Estadisticas Iniciales</span>
         </header>
       </div>
       <span>
@@ -86,22 +86,13 @@ function GraphicsInitial() {
             <Radar name="UserName" dataKey="A" stroke="#FFFFFF" fill="#FFA74F" fillOpacity={0.8} />
           </RadarChart>
         </ResponsiveContainer>
-      </span>
+      </span >
       {tooltipContent && ReactDOM.createPortal(
         <div
           className="custom-tooltip"
           style={{
-            position: 'absolute',
             left: tooltipPosition.x,
             top: tooltipPosition.y,
-            maxWidth: 400,
-            padding: '10px',
-            backgroundColor: 'rgba(0, 0, 0, 0.8)',
-            color: 'white',
-            borderRadius: '5px',
-            fontSize: '14px',
-            lineHeight: '1.5',
-            whiteSpace: 'normal',
           }}
           ref={tooltipRef}
         >
