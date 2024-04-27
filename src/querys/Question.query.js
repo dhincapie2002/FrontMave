@@ -22,14 +22,27 @@ export async function SetInitialQuestions(data){
     })
 }
 export async function SetHabitQuestions(data) {
-    return await axios.post(`${URL}/Question/SetHabbitScore/${IdUser}`,
+    return await axios.post(`${URL}/Question/SetHabitScore/${IdUser}`,
         {
             option: data
         },
         {
             headers:{
-                Authorization:`Bearer ${token}`
+                Authorization:`Bearer ${tokenA}`
             }
         }
     )
+}
+export async function SetHabbitScore(data) {
+    
+    return await axios.post(`${URL}/Mood/SetMood/${IdUser}`,
+    {
+        score: data
+    },
+    {
+        headers:{
+            Authorization: `Bearer ${tokenA}`
+        }
+    }
+    )    
 }

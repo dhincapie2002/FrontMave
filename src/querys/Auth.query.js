@@ -1,8 +1,13 @@
 import axios from "axios";
+import Cookies from "universal-cookie";
 
 export const URL = import.meta.env.VITE_URL
 
 export let token;
+
+const cook = new Cookies()
+
+let tokenA = cook.get(`id`)
 // Inicio de session 
 export async function InicioUser(data) {
     const result = await axios.post(`${URL}/User/LogIn`, {
@@ -25,4 +30,12 @@ export async function NuevoUser(data) {
     token = result.data.Token
     localStorage.setItem('token', token);
     return result
+}
+
+export async function GetUserInfo(id) {
+    return await axios.get(`${URL}/User/GetUserInfo/${id}`,{
+        headers:{
+            Authorization: `Bearer ${tokenA}`
+        }
+    })
 }

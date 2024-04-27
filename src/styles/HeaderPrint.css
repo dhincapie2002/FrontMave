@@ -1,15 +1,35 @@
+
+.todo{
+    width: 100%;
+    height: auto;
+}
+.Container{
+    margin-top: 150px;
+}
 .logo-print{
     width: 25%;
     margin-left: 10%;
 }
-
 .mave-print{
+    margin-top: 20px;
     font-size: 50px;
     margin-right: 20%;
     color: #1B5091;
 }
 
 h1{
-    margin-top: -10px;
+    margin-top: 10px;
     color: #1B5091;
+}
+.custom-tooltip{
+    position: absolute;
+    max-width: 400;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: normal;
+    height: auto;
 }
