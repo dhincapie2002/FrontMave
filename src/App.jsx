@@ -52,7 +52,7 @@ const App = () => {
           {/** ruta para el componente Creation */}
           <Route path="/Update" element={<Update />} />
           {/** ruta para el componente Update */}
-          <Route path="/OneArticle" element={<OneArticle />} />
+          <Route path="/OneArticle/:id" element={<OneArticle />} />
           {/** ruta para el componente OneArticle con un parámetro de ID*/}
         <Route path="/time-out" element={<LogOut />} />
         {/** ruta para cerrar sesion */}
