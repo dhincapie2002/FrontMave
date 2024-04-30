@@ -11,15 +11,15 @@ const Creation = () => {
   const [image, setImage] = useState(null);
   const [link, setLink] = useState("");
   const [publicationDate, setPublicationDate] = useState("");
-  /*const cookie = new Cookies(); // °° para validar si esta o no logeado
+  
+  const cookie = new Cookies(); // °° para validar si esta o no logeado
 
-  Session de usuario
   const cook = cookie.get('id')
   useEffect(() => {
  if (!cook) {
    navigate('/time-out')
 }
-}, [])*/
+}, [])
 
 const handleSubmit = (e) => {
     e.preventDefault();

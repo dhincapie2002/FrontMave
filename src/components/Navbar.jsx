@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/Navbar.css";
 import Swal from "sweetalert2";
+import Cookies from "universal-cookie";
 
 function Navbar() {
   const navigate = useNavigate();
+
+  /* Cookie */
+/* import Cookies from "universal-cookie"; */
+const cookie = new Cookies();
+const cook = cookie.get('id')
+useEffect(() => {
+  if (!cook) {
+    navigate('/time-out') // Hay que crear la ruta time out que es el cierre de sesioón
+  }
+}, [])
+/* Cookie */
 
   const handleLogout = () => {
     Swal.fire({

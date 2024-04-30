@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/Texts.css"; // Archivo de estilos CSS
 import Navbar from "../components/Navbar";
 import { Link, useNavigate } from "react-router-dom";
 import articulos from "../components/Articles/articulosData";
+import Cookies from "universal-cookie";
 //import OneArticle from "./OneArticle"; // Importa el componente OneArticle
 
 const Texts = () => {
   const navigate = useNavigate();
+    /* Cookie */
+/* import Cookies from "universal-cookie"; */
+const cookie = new Cookies();
+const cook = cookie.get('id')
+useEffect(() => {
+  if (!cook) {
+    navigate('/time-out') // Hay que crear la ruta time out que es el cierre de sesioón
+  }
+}, [])
+/* Cookie */
   const totalArticulos = articulos.length;
 
   const handleNavigateToOneArticle = (index) => { // Pasa el índice del artículo como argumento

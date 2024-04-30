@@ -9,7 +9,7 @@ const MoodMonitoring = () => {
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState(null);
 
- /*const cookie = new Cookies();
+ const cookie = new Cookies();
 
   // Session de usuario
   const cook = cookie.get('id')
@@ -17,7 +17,7 @@ const MoodMonitoring = () => {
     if (!cook) {
       navigate('/time-out')
     }
-  },)*/
+  },)
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);

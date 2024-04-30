@@ -1,8 +1,23 @@
-import React, { useState } from "react";
 import Navbar from "../Navbar";
 import Swal from "sweetalert2";
+import { Link, NavLink, useNavigate } from "react-router-dom"; 
+import Cookies from "universal-cookie";
+import React, { useState, useEffect } from "react";
 
 const QuestionsForHabits = ({ pregunta, onRespuesta, onConfirmar, esUltimaPregunta }) => {
+
+/* Cookie */
+/* import Cookies from "universal-cookie"; */
+const cookie = new Cookies();
+const navigate = useNavigate();
+const cook = cookie.get('id')
+useEffect(() => {
+  if (!cook) {
+    navigate('/time-out') // Hay que crear la ruta time out que es el cierre de sesioón
+  }
+}, [])
+/* Cookie */
+
   const [respuestaSeleccionada, setRespuestaSeleccionada] = useState(null);
 
   const handleSeleccionRespuesta = (respuesta) => {

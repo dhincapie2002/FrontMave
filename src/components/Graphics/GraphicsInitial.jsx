@@ -1,9 +1,22 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect} from "react";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Tooltip } from 'recharts';
 import "../../styles/HeaderPrint.css";
 import ReactDOM from 'react-dom'
+import Cookies from "universal-cookie";
+import { Link, NavLink, useNavigate } from "react-router-dom"; 
 
 function GraphicsInitial() {
+  /* Cookie */
+/* import Cookies from "universal-cookie"; */
+const cookie = new Cookies();
+const navigate = useNavigate();
+const cook = cookie.get('id')
+useEffect(() => {
+  if (!cook) {
+    navigate('/time-out') // Hay que crear la ruta time out que es el cierre de sesioón
+  }
+}, [])
+/* Cookie */
   const data = [
     {
       subject: 'Dominante',

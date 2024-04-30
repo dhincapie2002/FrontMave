@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState, useRef, useEffect} from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import "../../styles/GraphicsMood.css";
 import Navbar from "../../components/Navbar";
+import { Link, NavLink, useNavigate } from "react-router-dom"; 
+import Cookies from "universal-cookie";
 
 function GraphicsMood() {
+  /* Cookie */
+/* import Cookies from "universal-cookie"; */
+const cookie = new Cookies();
+const navigate = useNavigate();
+const cook = cookie.get('id')
+useEffect(() => {
+  if (!cook) {
+    navigate('/time-out') // Hay que crear la ruta time out que es el cierre de sesioón
+  }
+}, [])
+/* Cookie */
   const data = [
     { name: "face1", value: 1 },
     { name: "face2", value: 2 },

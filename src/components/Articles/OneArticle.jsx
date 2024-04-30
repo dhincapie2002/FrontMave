@@ -3,10 +3,23 @@ import "../../styles/OneArticle.css"; // Archivo de estilos CSS
 import Navbar from "../Navbar";
 import { useParams, useNavigate } from "react-router-dom";
 import articulos from "./articulosData";
+import Cookies from "universal-cookie";
 
 const OneArticle = () => {
-  const { id } = useParams(); // Obtener el valor del parámetro de la ruta
+
+    /* Cookie */
+/* import Cookies from "universal-cookie"; */
   const navigate = useNavigate();
+  const cookie = new Cookies();
+  const cook = cookie.get('id')
+  useEffect(() => {
+    if (!cook) {
+      navigate('/time-out') // Hay que crear la ruta time out que es el cierre de sesioón
+    }
+  })
+/* Cookie */
+
+  const { id } = useParams(); // Obtener el valor del parámetro de la ruta
 
   // Verificar si el ID es válido y obtener el artículo correspondiente
   const indiceInicial = parseInt(id) - 1;

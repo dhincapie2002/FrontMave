@@ -9,15 +9,15 @@ import Swal from 'sweetalert2';
 
 const InitialQuestions = () => {
   const navigate = useNavigate(); // °3°useNavigate para poder navegar entre pestañas
-  //const cookie = new Cookies(); // °° para validar si esta o no logeado
+  const cookie = new Cookies(); // °° para validar si esta o no logeado
 
   //// Session de usuario
-  //const cook = cookie.get('id')
-  //useEffect(() => {
-  //  if (!cook) {
-  //    navigate('/time-out')
-  //  }
-  //}, [])
+  const cook = cookie.get('id')
+  useEffect(() => {
+    if (!cook) {
+      navigate('/time-out')
+    }
+  }, [])
 
   //Estados de la application
   const [cuestionarioIniciado, setCuestionarioIniciado] = useState(false);
