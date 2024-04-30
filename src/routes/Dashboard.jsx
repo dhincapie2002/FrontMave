@@ -11,7 +11,6 @@ function Dashboard() {
   const [userName, setUserName] = useState("");
   const navigate = useNavigate();
   const cookie = new Cookies();
-  const cookie = new Cookies();
   const cook = cookie.get('id')
   console.log(role)
 
@@ -33,7 +32,6 @@ function Dashboard() {
 
     fetchUserName();
   },[]);
-  }, [])
 
   return (
     <div className="rp-cont">
