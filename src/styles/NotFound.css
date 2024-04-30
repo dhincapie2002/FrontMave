@@ -1,0 +1,30 @@
+.four_zero_four_bg {
+    background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+    height: -10%;
+    width: 476%;
+    background-position: center;
+    margin-left: -190%;
+}
+
+#h1-404{
+font-size: 60px;
+}
+
+#logo-404{
+    width: 100px;
+    height: 100px;
+}
+
+#arriba-404{
+    display: flex;
+    margin-bottom: 7%;
+}
+
+#p-404{
+    font-size: 40px;
+    margin-top: -2px;
+    color: #1B5091;
+}
+html {
+    overflow: hidden; /* Oculta el scroll vertical */
+}

@@ -7,7 +7,7 @@ import articulos from "../components/Articles/articulosData";
 
 const Texts = () => {
   const navigate = useNavigate();
-  const totalArticulos = articulos.length; // Usar articulos en lugar de articulosEjemplo
+  const totalArticulos = articulos.length;
 
   const handleNavigateToOneArticle = (index) => { // Pasa el índice del artículo como argumento
     navigate(`/oneArticle/${index + 1}`); // Añade el índice al URL

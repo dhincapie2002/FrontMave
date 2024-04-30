@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../styles/OneArticle.css"; // Archivo de estilos CSS
 import Navbar from "../Navbar";
 import { useParams, useNavigate } from "react-router-dom";
@@ -9,29 +9,29 @@ const OneArticle = () => {
   const navigate = useNavigate();
 
   // Verificar si el ID es válido y obtener el artículo correspondiente
-  const articulo = articulos[parseInt(id) - 1];
+  const indiceInicial = parseInt(id) - 1;
+  const [indiceArticulo, setIndiceArticulo] = useState(indiceInicial);
 
-  if (articulo>articulos.length) {
-    navigate("*");
-  }
+  useEffect(() => {
+    // Actualizar la URL cuando cambia el índice del artículo
+    navigate(`/oneArticle/${indiceArticulo + 1}`);
+  }, [indiceArticulo, navigate]);
 
   const handleNavigateToTexts = () => {
     navigate("/Texts");
   };
-  const [indiceArticulo, setIndiceArticulo] = useState(0);
 
   const mostrarSiguienteArticulo = () => {
-    setIndiceArticulo((indiceArticulo + 1) % articulo.length);
+    setIndiceArticulo((indiceArticulo + 1) % articulos.length);
   };
 
   const mostrarArticuloAnterior = () => {
     const nuevoIndice =
-      indiceArticulo - 1 < 0 ? articulo.length - 1 : indiceArticulo - 1;
+      indiceArticulo - 1 < 0 ? articulos.length - 1 : indiceArticulo - 1;
     setIndiceArticulo(nuevoIndice);
   };
 
-  const numeroArticuloActual = indiceArticulo + 1;
-  const totalArticulos = articulo.length;
+  const articulo = articulos[indiceArticulo];
 
   return (
     <div className="rp-cont">
@@ -59,7 +59,7 @@ const OneArticle = () => {
         <button onClick={mostrarArticuloAnterior}>Anterior</button>
         <div id="num" onClick={handleNavigateToTexts}>
           <p>
-            {numeroArticuloActual}/{totalArticulos}
+            {indiceArticulo + 1}/{articulos.length}
             <img
               src="../../src/image/icon/list.svg"
               alt=""
