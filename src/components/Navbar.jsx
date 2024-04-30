@@ -26,24 +26,24 @@ function Navbar() {
   return (
     <div className="navbar">
       <div className="nav_logo">
-        <img src="./src/assets/logo.svg" alt="" className="Logo" />
+        <img src="https://imgur.com/C86LPG8.png" alt="" className="Logo" />
       </div>
       <h1 id="mave">MAVE</h1>
       <div className="nav_items">
         <Link to="/Dashboard">
           <a href="#" className="items">
-            <img src="./src/image/icon/house.svg" alt="" className="Logo" />
+            <img src="https://imgur.com/JBl68w8.png" alt="" className="Logo" />
           </a>
         </Link>
 
         <Link to="/Dashboard">
           <a href="#" className="items">
-            <img src="./src/image/icon/bell.svg" alt="" className="Logo" />
+            <img src="https://imgur.com/KtWx5Bh.png" alt="" className="Logo" />
           </a>
         </Link>
 
         <a href="#" className="items" onClick={handleLogout}>
-          <img src="./src/image/icon/out.svg" alt="" className="Logo" />
+          <img src="https://imgur.com/rvPskIN.png" alt="" className="Logo" />
         </a>
       </div>
       <div className="nav_toggle"></div>

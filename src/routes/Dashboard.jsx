@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 import Swal from "sweetalert2";
@@ -8,7 +8,9 @@ import { GetUser } from "../hooks/UserHook";
 import {role} from "../querys/User.query"
 
 function Dashboard() {
+  const [userName, setUserName] = useState("");
   const navigate = useNavigate();
+  const cookie = new Cookies();
   const cookie = new Cookies();
   const cook = cookie.get('id')
   console.log(role)
@@ -20,6 +22,17 @@ function Dashboard() {
     if (!cook) {
       navigate('/time-out') // Hay que crear la ruta time out que es el cierre de sesioón
     }
+  }, [])
+
+  useEffect(() => {
+    //cargar el nombre de usuario desde la base de datos
+    const fetchUserName = async () => {
+      const fetchedUserName = "Elvis Quito";
+      setUserName(fetchedUserName);
+    };
+
+    fetchUserName();
+  },[]);
   }, [])
 
   return (
@@ -66,13 +79,14 @@ function Dashboard() {
             <label> Mindfulness </label>
           </button>
         </Link>
-
-        <Link to="/Dashboard">
+  */}
+        <Link to="/Texts">
           <button className="space-option">
             <img src="./src/image/Dashboard/Know.svg" className="option-icon" />
             <label> Saber Más </label>
           </button>
         </Link>
+
       </div>
     </div>
   );

@@ -4,3 +4,9 @@
     font-weight: 300;
     font-size: 14px !important;
 }
+
+.eye {
+    width: 50%;
+    margin-top: -8%;
+    margin-left: 50%;
+}

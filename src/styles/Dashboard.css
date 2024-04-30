@@ -3,11 +3,15 @@ header {
     justify-content: space-between;
     align-items: center;
   }
-
+#name{
+  margin-top: 1%;
+  margin-bottom: -3%;
+  text-align: center;
+}
   #space {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
 }
   
