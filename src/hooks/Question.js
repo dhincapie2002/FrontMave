@@ -1,5 +1,12 @@
-import { useMutation } from '@tanstack/react-query'
-import { SetHabbitScore, SetHabitQuestions, SetInitialQuestions } from "../querys/Question.query";
+import { useMutation, useQuery } from '@tanstack/react-query'
+import { GetInitialQuestions, SetHabbitScore, SetHabitQuestions, SetInitialQuestions } from "../querys/Question.query";
+
+export function GetInitialEvaluation(id) {
+    return useQuery({
+        queryKey: [`InitialEvaluation`],
+        queryFn: async () => GetInitialQuestions(id)
+    })
+}
 
 export function SendQuestionIni() {
     return useMutation({

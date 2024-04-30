@@ -1,6 +1,6 @@
 // Aqui se hacen peticiones 
-import { useMutation, useQuery } from '@tanstack/react-query'
-import { GetUserInfo, InicioUser, NuevoUser } from '../querys/Auth.query'
+import { useMutation } from '@tanstack/react-query'
+import { InicioUser, NuevoUser } from '../querys/Auth.query'
 
 // consulta de usuario para hacer login}
 export function SessionInit() {
@@ -16,9 +16,4 @@ export function NewUSer() {
     })
 }
 
-export function GetUser(id) {
-    return useMutation({
-        mutationFn: async() => await GetUserInfo(id)
-    })
-}
 

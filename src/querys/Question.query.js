@@ -8,6 +8,13 @@ const cook = new Cookies()
 export let IdUser = cook.get(`id`)
 export let tokenA = cook.get(`token`)
 
+export async function GetInitialQuestions(id) {
+    return await axios.get(`${URL}/Question/GetInitialEvaluation/${id}`,{
+        headers:{
+            Authorization: `Bearer ${tokenA}`
+        }
+    })
+}
 
 export async function SetInitialQuestions(data){
     console.log(tokenA)

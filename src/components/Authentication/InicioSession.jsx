@@ -1,7 +1,7 @@
 import { get, useForm } from "react-hook-form";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import '../../styles/alert.css'
-import { GetUser, SessionInit } from "../../hooks/Authentications";
+import { SessionInit } from "../../hooks/Authentications";
 import Cookies from "universal-cookie";
 import { useState } from "react";
 

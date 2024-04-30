@@ -4,22 +4,30 @@ import Cookies from "universal-cookie";
 import Swal from "sweetalert2";
 import "../styles/Dashboard.css";
 import Navbar from "../components/Navbar";
+import { GetUser } from "../hooks/UserHook";
+import {role} from "../querys/User.query"
 
 function Dashboard() {
   const navigate = useNavigate();
-  /*const cookie = new Cookies();
+  const cookie = new Cookies();
   const cook = cookie.get('id')
+  console.log(role)
+
+  const { data: result, isSuccess } = GetUser(cook)
+  console.log(isSuccess && result)
+
   useEffect(() => {
     if (!cook) {
       navigate('/time-out') // Hay que crear la ruta time out que es el cierre de sesioón
     }
-  }, [])*/
+  }, [])
 
   return (
     <div className="rp-cont">
       <Navbar />
-
+      <h1>Bienvenido {isSuccess && result.data.UserName}</h1>
       <div id="space">
+        
         <Link to="/Habitos">
           {" "}
           {/* Juan por favor coloca donde se puede ver los habitos */}
@@ -48,7 +56,7 @@ function Dashboard() {
             <label> Graficas </label>
           </button>
         </Link>
-        {/*
+        
         <Link to="/Dashboard">
           <button className="space-option">
             <img
@@ -65,7 +73,6 @@ function Dashboard() {
             <label> Saber Más </label>
           </button>
         </Link>
-  */}
       </div>
     </div>
   );
