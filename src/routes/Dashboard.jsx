@@ -8,14 +8,14 @@ import Navbar from "../components/Navbar";
 function Dashboard() {
   const [userName, setUserName] = useState("");
   const navigate = useNavigate();
-  const cookie = new Cookies();
+  /*const cookie = new Cookies();
   const cook = cookie.get('id')
   useEffect(() => {
     if (!cook) {
       navigate('/time-out') // Hay que crear la ruta time out que es el cierre de sesioón
     }
   }, [])
-
+*/
   useEffect(() => {
     //cargar el nombre de usuario desde la base de datos
     const fetchUserName = async () => {
