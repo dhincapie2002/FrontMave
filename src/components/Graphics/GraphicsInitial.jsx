@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Tooltip } from 'recharts';
 import Navbar from "../../components/Navbar";
 import { GetGraficsIni } from "../../hooks/Grafics";
 import Cookies from "universal-cookie";
 import NavBar from "../Navbar"
+import ReactDOM from "react-dom"
 function GraphicsInitial() {
   const cook = new Cookies()
   let idUsuario = cook.get('id')

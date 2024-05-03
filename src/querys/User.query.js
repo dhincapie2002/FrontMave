@@ -15,3 +15,11 @@ export async function GetUserInfo(id) {
     role = result.data.RoleId
     return result;
 }
+export async function GetAllUsers(id) {
+    return await axios.get(`${URL}/User/GetAllUsers/${id}`,
+{
+    headers:{
+        Authorization: `Bearer ${tokenA}`
+    }
+})
+}

@@ -5,17 +5,14 @@ import Swal from "sweetalert2";
 import "../styles/Dashboard.css";
 import Navbar from "../components/Navbar";
 import { GetUser } from "../hooks/UserHook";
-import {role} from "../querys/User.query"
 
 function Dashboard() {
   const [userName, setUserName] = useState("");
   const navigate = useNavigate();
   const cookie = new Cookies();
   const cook = cookie.get('id')
-  console.log(role)
 
   const { data: result, isSuccess } = GetUser(cook)
-  console.log(isSuccess && result)
 
   useEffect(() => {
     if (!cook) {
@@ -63,7 +60,7 @@ function Dashboard() {
 
         <Link to="/Graphics">
           <button className="space-option">
-            <img src="./src/image/Test.svg" className="option-icon" />
+            <img src="https://imgur.com/BOsGxwv.png" className="option-icon" />
             <label> Graficas </label>
           </button>
         </Link>
@@ -77,10 +74,9 @@ function Dashboard() {
             <label> Mindfulness </label>
           </button>
         </Link>
-  */}
         <Link to="/Texts">
           <button className="space-option">
-            <img src="./src/image/Dashboard/Know.svg" className="option-icon" />
+            <img src="https://imgur.com/JkSEd9K.png" className="option-icon" />
             <label> Saber Más </label>
           </button>
         </Link>

@@ -17,7 +17,7 @@ export async function GetInitialQuestions(id) {
 }
 
 export async function SetInitialQuestions(data){
-    console.log(tokenA)
+    console.log(data)
     return await axios.post(`${URL}/Question/SetInitialEvaluation/${IdUser}`,
     {
         option: data
@@ -31,7 +31,7 @@ export async function SetInitialQuestions(data){
 export async function SetHabitQuestions(data) {
     return await axios.post(`${URL}/Question/SetHabitScore/${IdUser}`,
         {
-            option: data
+            score: data
         },
         {
             headers:{

@@ -47,6 +47,8 @@ const HabitQuestions = () => {
   // Función para finalizar la prueba y enviar las respuestas
   const finalizarPrueba = () => {
     //hacer la mutacion y enviar los datos a el back 
+    console.log(mutacion)
+    console.log(respuestas)
     mutacion.mutate(respuestas)
     // Aquí puedes hacer lo que necesites con el arreglo de respuestas
     Swal.fire({
@@ -55,7 +57,6 @@ const HabitQuestions = () => {
       confirmButtonColor: '#1B5091',
       backdrop: "linear-gradient(to right, #60C8B3, #1B5091)", 
     });
-    console.log("Respuestas:", respuestas);
     // Subir los datos del formulario a la api
 
   };
