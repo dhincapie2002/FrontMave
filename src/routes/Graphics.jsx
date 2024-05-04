@@ -2,11 +2,21 @@ import React, { useState, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import "../styles/Graphics.css";
 import Navbar from "../components/Navbar";
-
 import Cookies from "universal-cookie";
-import Swal from "sweetalert2";
 
 const Graphics = () => {
+/* Cookie */
+/* import Cookies from "universal-cookie"; */
+  const cookie = new Cookies();
+  const navigate = useNavigate();
+  const cook = cookie.get('id')
+  useEffect(() => {
+    if (!cook) {
+      navigate('/time-out') // Hay que crear la ruta time out que es el cierre de sesioón
+    }
+  }, [])
+  /* Cookie */
+
   return (
     <div className="rp-cont">
       <Navbar />

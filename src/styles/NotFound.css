@@ -28,3 +28,17 @@ font-size: 60px;
 html {
     overflow: hidden; /* Oculta el scroll vertical */
 }
+
+#logOut{
+    text-align: center;
+    font-size: 30px;
+}
+
+#logOut-h1{
+    color: white;
+}
+
+#gif-logOut{
+    width: 300px;
+    height: 300px;
+}

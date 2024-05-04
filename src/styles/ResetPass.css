@@ -83,3 +83,8 @@
         font-family: 'Lilita One', Times, serif;
         text-shadow: 0 0 5px black;
     }
+
+    .Loading{
+        width: 60px;
+        height: 60px;
+    }

@@ -1,16 +1,24 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import "../../styles/GraphicsMood.css";
 import Navbar from "../../components/Navbar";
-import Cookies from "universal-cookie";
 import { GetGraficsMood } from "../../hooks/Grafics";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import Cookies from "universal-cookie";
 
 function GraphicsMood() {
+   /* Cookie */
+  /* import Cookies from "universal-cookie"; */
   const cook = new Cookies()
   let idUsuario = cook.get(`id`)
-  const {data:result, isSuccess} = GetGraficsMood(idUsuario)
+  const { data: result, isSuccess } = GetGraficsMood(idUsuario)
   console.log(result)
-
+  useEffect(() => {
+    if (!cook) {
+      navigate('/time-out') // Hay que crear la ruta time out que es el cierre de sesioón
+    }
+  }, [])
+  /* Cookie */
   const data = [
     { name: "face1", value: isSuccess && result.data.score1 },
     { name: "face2", value: isSuccess && result.data.score2 },
@@ -51,7 +59,7 @@ function GraphicsMood() {
   return (
     <div id="cont-graphic">
       <div>
-      <Navbar />
+        <Navbar />
       </div>
       <h1 id="h1-que">Que Tal Tus Dias</h1>
       <div id="face">

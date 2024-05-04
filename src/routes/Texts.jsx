@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/Texts.css"; // Archivo de estilos CSS
 import Navbar from "../components/Navbar";
 import { Link, useNavigate } from "react-router-dom";
-import articulos from "../components/Articles/articulosData";
 import Cookies from "universal-cookie";
 import { GetAllArticles } from "../hooks/Article";
 import { role } from "../querys/User.query";
@@ -10,17 +9,22 @@ import { role } from "../querys/User.query";
 
 const Texts = () => {
   const navigate = useNavigate();
-  const cook = new Cookies();
-  const IdUser = cook.get(`id`)
-  const {data:result, isSuccess} = GetAllArticles(IdUser)
-  const articles = isSuccess && result.data;
-  const totalArticulos = articles.length;
-  const rol = role;
-  const botonPsicologo=()=>{
-    if (rol==4) {
-      <button onClick={navigate(`/Creacion`)}>Agregar Articulo</button>
-    }
+  const rol = role
+  console.log(rol)
+    /* Cookie */
+/* import Cookies from "universal-cookie"; */
+const cookie = new Cookies();
+const cook = cookie.get('id')
+useEffect(() => {
+  if (!cook) {
+    navigate('/time-out') // Hay que crear la ruta time out que es el cierre de sesioón
   }
+}, [])
+const {data:result, isSuccess} = GetAllArticles(cook);
+  const articles = isSuccess && result.data;
+/* Cookie */
+  const totalArticulos = articles.length;
+
   const handleNavigateToOneArticle = (index) => { // Pasa el índice del artículo como argumento
     navigate(`/oneArticle/${index + 1}`); // Añade el índice al URL
   };
@@ -46,7 +50,7 @@ const Texts = () => {
         </div>
       </div>
       <p>Total de artículos: {totalArticulos}</p>
-      {rol === 4 && (<button onClick={() => navigate(`/Creation`)} >Añadir Articulo</button>)}
+      {rol === 3 && (<button onClick={() => navigate(`/Creation`)} >Añadir Articulo</button>)}
     </div>
   );
 };

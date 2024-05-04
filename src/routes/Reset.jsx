@@ -60,7 +60,7 @@ const ForgotPassword = () => {
                 </button>
 
                 {
-                    mutacion.isPending && <span>Loading...</span>
+                    mutacion.isPending && <span><img className="Loading" src="https://i.gifer.com/XVo6.gif" alt="Cargando" /></span>
                 }
                 {
                     mutacion.isSuccess && <span>Contraseña cambiada con exito</span>

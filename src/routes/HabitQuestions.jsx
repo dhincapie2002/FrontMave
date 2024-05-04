@@ -11,7 +11,7 @@ const HabitQuestions = () => {
   const [preguntaActual, setPreguntaActual] = useState(0);
   const [respuestas, setRespuestas] = useState([]);
   const navigate = useNavigate(); // °3°useNavigate para poder navegar entre pestañas
-  /*const cookie = new Cookies(); // °° para validar si esta o no logeado
+  const cookie = new Cookies(); // °° para validar si esta o no logeado
 
   // Session de usuario
   const cook = cookie.get('id')
@@ -20,7 +20,7 @@ const HabitQuestions = () => {
       navigate('/time-out')
     }
   }, [])
-*/
+
     // Lista de preguntas
     const preguntas = [
       { pregunta: "¿Qué tan bien comiste hoy?", tipo: "puntuacion" },

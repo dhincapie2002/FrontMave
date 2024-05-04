@@ -113,13 +113,13 @@ const Registro = () => {
       <button>Registro</button>
 
       {
-        mutacion.isPending && <span>Loading...</span>
+        mutacion.isPending && <span><img className="Loading" src="https://i.gifer.com/XVo6.gif" alt="Cargando" /></span>
       }
       {
         mutacion.isSuccess && <span>Hecho</span>
       }
       {
-        mutacion.isError && <span>Fail</span>
+        mutacion.isError && <span>Parece que algo fallo, intenta de nuevo</span>
       }
     </form>
   )

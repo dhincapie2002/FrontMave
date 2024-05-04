@@ -27,7 +27,7 @@ const AllUserAdmin= () =>{
                   id="btn-texts-uno"
                   onClick={() => handleNavigateUsers(index)}
                 >
-                  <h2 id="titulo-variosm">{User.UserName}</h2>
+                  <h2 id="titulo-variosm">{User.userName}</h2>
                 </button>
               </div>
             </div>

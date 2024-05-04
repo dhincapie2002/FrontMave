@@ -2,16 +2,27 @@ import React, { useState, useEffect } from "react";
 import "../../styles/OneArticle.css"; // Archivo de estilos CSS
 import Navbar from "../Navbar";
 import { useParams, useNavigate } from "react-router-dom";
+//import articulos from "./articulosData";
 import Cookies from "universal-cookie";
 import { GetAllArticles } from "../../hooks/Article";
 
 const OneArticle = () => {
-  const { id } = useParams(); // Obtener el valor del parámetro de la ruta
+
+    /* Cookie */
+/* import Cookies from "universal-cookie"; */
   const navigate = useNavigate();
-  const cook = new Cookies();
-  const IdUser = cook.get(`id`)
-  const {data:result, isSuccess} = GetAllArticles(IdUser)
-  const articulos = isSuccess && result.data;
+  const cookie = new Cookies();
+  const cook = cookie.get('id')
+  useEffect(() => {
+    if (!cook) {
+      navigate('/time-out') // Hay que crear la ruta time out que es el cierre de sesioón
+    }
+  })
+/* Cookie */
+const {data:result, isSuccess} = GetAllArticles(cook);
+const articulos = isSuccess && result.data;
+  const { id } = useParams(); // Obtener el valor del parámetro de la ruta
+
   // Verificar si el ID es válido y obtener el artículo correspondiente
   const indiceInicial = parseInt(id) - 1;
   const [indiceArticulo, setIndiceArticulo] = useState(indiceInicial);
@@ -42,16 +53,16 @@ const OneArticle = () => {
       <Navbar />
       <div id="article">
         <div id="div-titulo">
-          <h2 id="titulo">{articulo.articleName}</h2>
+          <h2 id="titulo">{isSuccess && articulo.articleName}</h2>
         </div>
         <img
-          src={articulo.picture}
-          alt={articulo.articleName}
+          src={isSuccess && articulo.picture}
+          alt={isSuccess && articulo.articleName}
           id="imagen-articulo"
         />
-        <h2 id="date">{articulo.date}</h2>
+        <h2 id="date">{isSuccess && articulo.date}</h2>
         <a
-          href={articulo.link}
+          href={isSuccess && articulo.link}
           target="_blank"
           rel="noopener noreferrer"
           id="boton-ver"

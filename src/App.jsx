@@ -3,21 +3,22 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./routes/Login";
 import ResetPass from "./routes/ResetPass";
 import NotFound from "./routes/NotFound";
-import Dashboard from "./routes/Dashboard"; // Corrige la importación a Dashboar
+import Dashboard from "./routes/Dashboard"; //galleta // Corrige la importación a Dashboar
 import Reset from "./routes/Reset";
 import LogOut from "./routes/LogOut";
-import InitialQuestions from "./routes/InitialQuestions";
-import MoodMonitoring from "./routes/MoodMonitoring";
-import HabitQuestions from "./routes/HabitQuestions";
-import QuestionsForHabits from "./components/PreguntasHabitos/QuestionsForHabits";
-import Graphics from "./routes/Graphics";
-import GraphicsInitial from "./components/Graphics/GraphicsInitial";
-import GraphicsMood from "./components/Graphics/GraphicsMood";
-import Nav from "./components/Navbar";
-import Texts from "./routes/Texts";
-import Creation from "./components/Articles/Creation";
+import InitialQuestions from "./routes/InitialQuestions"; //galleta
+import MoodMonitoring from "./routes/MoodMonitoring"; //galleta
+import HabitQuestions from "./routes/HabitQuestions"; // galleta fijarse para el texts
+import QuestionsForHabits from "./components/PreguntasHabitos/QuestionsForHabits"; // galleta
+import Graphics from "./routes/Graphics"; //galleta
+import GraphicsInitial from "./components/Graphics/GraphicsInitial"; //galleta
+import GraphicsMood from "./components/Graphics/GraphicsMood"; //galleta
+import Nav from "./components/Navbar"; //galleta
+import Texts from "./routes/Texts"; //galleta
+import Creation from "./components/Articles/Creation"; //galleta
 import Update from "./components/Articles/Update";
-import OneArticle from "./components/Articles/OneArticle"
+import OneArticle from "./components/Articles/OneArticle"; //galleta
+import AllUserAdmin from "./routes/AllUserAdmin";
 
 const App = () => {
   return (
@@ -59,6 +60,7 @@ const App = () => {
         <Route path="*" element={<NotFound />} />
         {/** ruta de manejo de error */}
         <Route path="/Nav" element={<Nav />} />
+        <Route path="/AllUsers" element={<AllUserAdmin/>}/>
       </Routes>
     </Router>
   );
