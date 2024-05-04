@@ -19,7 +19,7 @@ const Texts = () => {
       enlace:
         "https://www.psychologytoday.com/co/blog/como-impacta-el-estres-a-tu-vida-diaria-y-que-hacer-al-respecto",
     },
-
+ 
     {
       titulo: "La conexión entre el amor, la felicidad y la buena salud",
       imagen: "./src/components/Articles/fotosTem/Articulo (3).png",
