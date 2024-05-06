@@ -6,13 +6,14 @@ import Cookies from "universal-cookie";
 import { GetAllUsersFromAdmin } from "../hooks/UserHook";
 
 const AllUserAdmin= () =>{
+    const navigate = new useNavigate()
     const cook = new Cookies()
     const IdUser = cook.get(`id`)
     const {data:result , isSuccess} = GetAllUsersFromAdmin(IdUser)
     const UsersComplete = isSuccess && result.data // obtener todos los usarios
     console.log(UsersComplete)
     const handleNavigateUsers = (index) => { // Pasa el índice del artículo como argumento
-        navigate(`/AllUsers/${index + 1}`); // Añade el índice al URL
+        navigate(`/OneUser/${index + 1}`); // Añade el índice al URL
     };
     return(
         <div className="rp-cont">

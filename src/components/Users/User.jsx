@@ -4,8 +4,9 @@ import Navbar from "../Navbar";
 import { useParams, useNavigate } from "react-router-dom";
 //import articulos from "./articulosData";
 import Cookies from "universal-cookie";
+import { GetAllUsersFromAdmin } from "../../hooks/UserHook";
 
-const OneArticle = () => {
+const OneUsers = () => {
 
     /* Cookie */
 /* import Cookies from "universal-cookie"; */
@@ -18,7 +19,7 @@ const OneArticle = () => {
     }
   })
 /* Cookie */
-const {data:result, isSuccess} = GetAllArticles(cook);
+const {data:result, isSuccess} = GetAllUsersFromAdmin(cook)
 const users = isSuccess && result.data;
   const { id } = useParams(); // Obtener el valor del parámetro de la ruta
  
@@ -28,7 +29,7 @@ const users = isSuccess && result.data;
 
   useEffect(() => {
     // Actualizar la URL cuando cambia el índice del artículo
-    navigate(`/oneArticle/${indiceArticulo + 1}`);
+    navigate(`/OneUser/${indiceArticulo + 1}`);
   }, [indiceArticulo, navigate]);
 
   const handleNavigateToTexts = () => {
@@ -54,19 +55,16 @@ const users = isSuccess && result.data;
         <div id="div-titulo">
           <h2 id="titulo">{isSuccess && user.userName}</h2>
         </div>
-        <img
-          src={isSuccess && user.Telefono}
-          alt={isSuccess && user.Correo}
-          id="imagen-articulo"
-        />
-        <h2 id="date">{isSuccess && user.idUser}</h2>
+        <h2>{isSuccess && user.email}</h2>
+        <h2>{isSuccess && user.phone}</h2>
+        <h2 id="date">{isSuccess && user.roleIdr}</h2>
         <a
-          href={isSuccess && articulo.userName}
+          href={isSuccess && user.userName}
           target="_blank"
           rel="noopener noreferrer"
           id="boton-ver"
         >
-          Ver
+          Actualizar usuario
         </a>
       </div>
       <div id="controles">
@@ -87,4 +85,4 @@ const users = isSuccess && result.data;
   );
 };
 
-export default OneArticle;
+export default OneUsers;

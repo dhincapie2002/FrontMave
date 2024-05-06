@@ -19,6 +19,7 @@ import Creation from "./components/Articles/Creation"; //galleta
 import Update from "./components/Articles/Update";
 import OneArticle from "./components/Articles/OneArticle"; //galleta
 import AllUserAdmin from "./routes/AllUserAdmin";
+import OneUsers from "./components/Users/User";
 
 const App = () => {
   return (
@@ -61,6 +62,7 @@ const App = () => {
         {/** ruta de manejo de error */}
         <Route path="/Nav" element={<Nav />} />
         <Route path="/AllUsers" element={<AllUserAdmin/>}/>
+          <Route path="/OneUser/:id" element= {<OneUsers/>}/>
       </Routes>
     </Router>
   );
