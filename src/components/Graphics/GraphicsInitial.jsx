@@ -1,46 +1,56 @@
-import React, { useState, useRef, useEffect} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Tooltip } from 'recharts';
-import "../../styles/HeaderPrint.css";
-import ReactDOM from 'react-dom'
+import Navbar from "../../components/Navbar";
+import { GetGraficsIni } from "../../hooks/Grafics";
 import Cookies from "universal-cookie";
-import { Link, NavLink, useNavigate } from "react-router-dom"; 
+import NavBar from "../Navbar"
+import ReactDOM from "react-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 function GraphicsInitial() {
+  const cook = new Cookies()
+  let idUsuario = cook.get('id')
+  const { data: result, isSuccess } = GetGraficsIni(idUsuario)
+  console.log(result)
   /* Cookie */
-/* import Cookies from "universal-cookie"; */
-const cookie = new Cookies();
-const navigate = useNavigate();
-const cook = cookie.get('id')
-useEffect(() => {
-  if (!cook) {
-    navigate('/time-out') // Hay que crear la ruta time out que es el cierre de sesioón
-  }
-}, [])
-/* Cookie */
+  /* import Cookies from "universal-cookie"; */
+  useEffect(() => {
+    if (!cook) {
+      navigate('/time-out') // Hay que crear la ruta time out que es el cierre de sesioón
+    }
+  }, [])
+  /* Cookie */
   const data = [
     {
       subject: 'Dominante',
       desc: 'Las personas dominantes se caracterizan por tener energía desbordante, seguridad en sí mismos y tono de voz fuerte, manifestando una actitud segura y dominante al caminar, hablar en reuniones o participar en seminarios. Su vestimenta refleja poder y autoridad, y su manera de expresarse es directa y mandona. En la oficina, destacan por su liderazgo y capacidad para enfocarse en una meta final, pero pueden ser egocéntricos, explosivos, mandones, manipuladores e impacientes, aunque también destacan por su perseverancia, energía y visión de superación.',
-      A: 10,
+      A: isSuccess && result.data.d,
       fullMark: 21,
+      tooltip: 'Se caracterizan por tener energía desbordante, seguridad en sí mismos y tono de voz fuerte, manifestando una actitud segura y dominante al caminar, hablar en reuniones o participar en seminarios.',
     },
     {
       subject: 'Estable',
+
       desc: 'Las personas estables se caracterizan por su tranquilidad, adaptabilidad y lentitud en hablar y caminar, mostrándose discretos y callados en reuniones. En seminarios, muestran interés genuino por aprender y una humildad notable. Su vestimenta es conservadora y su expresión calmada y gentil. En la oficina, se mantienen tranquilos y entregados a sus tareas. Tienen una gran paciencia y capacidad para escuchar, contagian paz y estabilidad. Sin embargo, pueden ser inseguros para expresar sus opiniones, desmotivados sin afirmación constante, y tienden a evitar el riesgo y la novedad, siendo indecisos en la toma de decisiones.',
-      A: 5,
+      A: isSuccess && result.data.s,
       fullMark: 21,
+      tooltip: 'Se caracterizan por su tranquilidad, adaptabilidad y lentitud en hablar y caminar, mostrándose discretos y callados en reuniones. En seminarios, muestran interés genuino por aprender y una humildad notable.',
     },
     {
       subject: 'Concienzudo',
       desc: 'La persona concienzuda se distingue por hablar con fundamentos y cuidar su aspecto físico. Camina directo a su destino, observa detalladamente en reuniones y toma apuntes ordenados en seminarios. Su vestimenta es sobria y elegante, y su manera de expresarse es directa y clara. En la oficina, evita juegos de poder y se mantiene éticamente comprometida. Tiene un fuerte sentido del compromiso, es considerada y valora la dimensión espiritual de la vida. Sin embargo, tiende a tener expectativas irreales, ser aprehensiva, terca, pesimista y perfeccionista.',
-      A: 5,
+      A: isSuccess && result.data.c,
+
       fullMark: 21,
+      tooltip: 'Se distingue por hablar con fundamentos y cuidar su aspecto físico. Camina directo a su destino, observa detalladamente en reuniones y toma apuntes ordenados en seminarios.',
     },
     {
       subject: 'Influyente',
+
       desc: 'Las personas influyentes se destacan por su alegría, charlas constantes y amistosas, pero también por su impuntualidad y distracción. Son reconocibles porque suelen cantar o hablar solos al caminar, atraen a la gente en reuniones y seminarios, y prefieren ropa creativa y colores llamativos. Se expresan con gestos y gesticulaciones constantes, y rara vez se encuentran en sus escritorios en la oficina, prefiriendo socializar. Su sentido del gusto está muy desarrollado. Son juguetones, optimistas y entusiastas, encontrando la diversión en todo. Sin embargo, tienden a ser olvidadizos, distraídos, evasivos, exagerados y desorganizados, con dificultad para concluir proyectos iniciados.',
-      A: 5,
+      A: isSuccess && result.data.i,
       fullMark: 21,
+      tooltip: 'Se destacan por su alegría, charlas constantes y amistosas, pero también por su impuntualidad y distracción.',
     },
   ];
 
@@ -73,14 +83,15 @@ useEffect(() => {
     } else {
       setTooltipContent(null);
     }
-  }
+    return null;
+  };
 
   return (
-    <div>
-      <div>
+    <div className="todo">
+      <div className="Container">
+        <NavBar />
         <header className="header-print">
-          <img src="./src/assets/logo.svg" alt="Logo" className="logo-print" />
-          <span className="mave-print">MAVE</span>
+          <span className="mave-print">Estadisticas Iniciales</span>
         </header>
       </div>
       <span>
@@ -93,22 +104,13 @@ useEffect(() => {
             <Radar name="UserName" dataKey="A" stroke="#FFFFFF" fill="#FFA74F" fillOpacity={0.8} />
           </RadarChart>
         </ResponsiveContainer>
-      </span>
+      </span >
       {tooltipContent && ReactDOM.createPortal(
         <div
           className="custom-tooltip"
           style={{
-            position: 'absolute',
             left: tooltipPosition.x,
             top: tooltipPosition.y,
-            maxWidth: 400,
-            padding: '10px',
-            backgroundColor: 'rgba(0, 0, 0, 0.8)',
-            color: 'white',
-            borderRadius: '5px',
-            fontSize: '14px',
-            lineHeight: '1.5',
-            whiteSpace: 'normal',
           }}
           ref={tooltipRef}
         >

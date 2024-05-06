@@ -11,10 +11,10 @@ header {
   #space {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 12px;
 }
-  
+   
   .space-option {
     background-color: transparent;
     border: none;
@@ -33,7 +33,7 @@ header {
   
   .option-icon {
     width: 50px;
-    height: 76px;
+    height: 50%;
   }
   
   .space-option:hover,

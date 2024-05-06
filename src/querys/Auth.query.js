@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from "universal-cookie";
 
 export const URL = import.meta.env.VITE_URL
 
@@ -26,3 +27,5 @@ export async function NuevoUser(data) {
     localStorage.setItem('token', token);
     return result
 }
+
+

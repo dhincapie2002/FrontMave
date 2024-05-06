@@ -6,18 +6,33 @@ import { preguntas } from "../assets/data/preguntas";
 import Instrucciones from "../components/DashboardInicio/Encuesta/Instrucciones";
 import PreguntasUser from "../components/DashboardInicio/Encuesta/PreguntasUser";
 import Swal from 'sweetalert2';
+import { GetInitialEvaluation } from '../hooks/Question'
 
 const InitialQuestions = () => {
   const navigate = useNavigate(); // °3°useNavigate para poder navegar entre pestañas
   const cookie = new Cookies(); // °° para validar si esta o no logeado
-
-  //// Session de usuario
+  // Session de usuario
   const cook = cookie.get('id')
+  const {data: result, isSuccess} = GetInitialEvaluation(cook)
+  
   useEffect(() => {
     if (!cook) {
       navigate('/time-out')
     }
-  }, [])
+  })
+
+  function Realizado() {
+    if (isSuccess && result.data == "El usuario ya realizo la evaluacion inicial" ) {
+      Swal.fire({
+        title:result.data,
+        icon: 'success',
+        confirmButtonColor: '#1B5091',
+        backdrop: "linear-gradient(to right, #60C8B3, #1B5091)",
+      });
+    navigate("/Dashboard");
+    }
+  }
+
 
   //Estados de la application
   const [cuestionarioIniciado, setCuestionarioIniciado] = useState(false);
@@ -27,9 +42,19 @@ const InitialQuestions = () => {
   useEffect(() => {
     let intervalId;
     if (cuestionarioIniciado && tiempoRestante > 0) {
-      intervalId = setInterval(() => {
-        setTiempoRestante((prevTiempoRestante) => prevTiempoRestante - 1);
-      }, 1000);
+      if (isSuccess && result.data == "El usuario ya realizo la evaluacion inicial" ) {
+        Swal.fire({
+          title:result.data,
+          icon: 'success',
+          confirmButtonColor: '#1B5091',
+          backdrop: "linear-gradient(to right, #60C8B3, #1B5091)",
+        });
+      navigate("/Dashboard");
+      }else{
+        intervalId = setInterval(() => {
+          setTiempoRestante((prevTiempoRestante) => prevTiempoRestante - 1);
+        }, 1000);
+      }
     } else if (tiempoRestante === 0) {
       setTiempoFin(true);
       Swal.fire({

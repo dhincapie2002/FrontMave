@@ -4,6 +4,7 @@ import "../styles/MoodMonitoring.css";
 import Cookies from "universal-cookie";
 import Swal from 'sweetalert2';
 import Navbar from "../components/Navbar";
+import { SendScoreHab } from "../hooks/Question";
 
 const MoodMonitoring = () => {
   const navigate = useNavigate();
@@ -22,9 +23,11 @@ const MoodMonitoring = () => {
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
-  
+  const mutation = SendScoreHab()
   const handleConfirmarRespuesta = () => {
     if (selectedOption !== null) {
+      console.log(selectedOption)
+      mutation.mutate(selectedOption)
       Swal.fire({
         title: 'Respuesta guardada',
         icon: 'success',
@@ -56,6 +59,7 @@ const MoodMonitoring = () => {
             className="radio-button"
             type="radio"
             name="radio"
+            value={1}
             onChange={handleOptionChange}
           />
           <div className="radio-tile">
@@ -78,6 +82,7 @@ const MoodMonitoring = () => {
             className="radio-button"
             type="radio"
             name="radio"
+            value={2}
             onChange={handleOptionChange}
           />
           <div className="radio-tile">
@@ -96,6 +101,7 @@ const MoodMonitoring = () => {
             className="radio-button"
             type="radio"
             name="radio"
+            value={3}
             onChange={handleOptionChange}
           />
           <div className="radio-tile">
@@ -114,6 +120,7 @@ const MoodMonitoring = () => {
             className="radio-button"
             type="radio"
             name="radio"
+            value={4}
             onChange={handleOptionChange}
           />
           <div className="radio-tile">
@@ -132,6 +139,7 @@ const MoodMonitoring = () => {
             className="radio-button"
             type="radio"
             name="radio"
+            value={5}
             onChange={handleOptionChange}
           />
           <div className="radio-tile">

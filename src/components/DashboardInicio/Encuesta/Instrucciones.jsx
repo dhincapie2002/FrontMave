@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+
 const Instrucciones = ({ setCuestionarioIniciado }) => {
   return (
     <>
@@ -12,7 +13,7 @@ const Instrucciones = ({ setCuestionarioIniciado }) => {
         <br></br>
         4. Contara con 15 minutos para responder las 24 preguntas.
       </p>
-      <button onClick={() => setCuestionarioIniciado(true)}>Empezar</button>
+      <button onClick={() => setCuestionarioIniciado(true)  }>Empezar</button>
     </>
   )
 }

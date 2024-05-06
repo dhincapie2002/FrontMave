@@ -10,16 +10,16 @@ function PreguntasUser({ segundosAMinutos, tiempoRestante }) {
   const [respuestas, setRespuestas] = useState(new Array(24).fill(null));
 
   function Terminar() {
-    mutacion.mutate(respuestas)
+      mutacion.mutate(respuestas)
+      console.log(mutacion)
       Swal.fire({
         title: 'Has finalizado el test inicial',
         icon: 'success',
         confirmButtonColor: '#1B5091',
         backdrop: "linear-gradient(to right, #60C8B3, #1B5091)",
       });
-    navigate("/Dashboard");
-  
-    
+      navigate("/Dashboard");
+
   }
 
   const mutacion = SendQuestionIni()
@@ -47,7 +47,7 @@ function PreguntasUser({ segundosAMinutos, tiempoRestante }) {
       });
     }
   };
- 
+
   return (
     <div>
       <div className="radio-input">
@@ -66,9 +66,9 @@ function PreguntasUser({ segundosAMinutos, tiempoRestante }) {
               type="radio"
               id={`value-${index + 1}`}
               name={`value${preguntaActual}`}
-              value={String.fromCharCode(65+index)}
+              value={String.fromCharCode(65 + index)}
               checked={respuestas[preguntaActual - 1] === `value-${index + 1}`}
-              onClick={() => handleSeleccionRespuesta(String.fromCharCode(65+index))}
+              onClick={() => handleSeleccionRespuesta(String.fromCharCode(65 + index))}
             />
             <label htmlFor={`value-${index + 1}`}>{opcion}</label>
           </div>

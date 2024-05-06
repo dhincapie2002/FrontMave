@@ -1,28 +1,30 @@
-import React, { useState, useRef, useEffect} from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import "../../styles/GraphicsMood.css";
 import Navbar from "../../components/Navbar";
-import { Link, NavLink, useNavigate } from "react-router-dom"; 
+import { GetGraficsMood } from "../../hooks/Grafics";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 
 function GraphicsMood() {
+   /* Cookie */
+  /* import Cookies from "universal-cookie"; */
+  const cook = new Cookies()
+  let idUsuario = cook.get(`id`)
+  const { data: result, isSuccess } = GetGraficsMood(idUsuario)
+  console.log(result)
+  useEffect(() => {
+    if (!cook) {
+      navigate('/time-out') // Hay que crear la ruta time out que es el cierre de sesioón
+    }
+  }, [])
   /* Cookie */
-/* import Cookies from "universal-cookie"; */
-const cookie = new Cookies();
-const navigate = useNavigate();
-const cook = cookie.get('id')
-useEffect(() => {
-  if (!cook) {
-    navigate('/time-out') // Hay que crear la ruta time out que es el cierre de sesioón
-  }
-}, [])
-/* Cookie */
   const data = [
-    { name: "face1", value: 1 },
-    { name: "face2", value: 2 },
-    { name: "face3", value: 3 },
-    { name: "face4", value: 4 },
-    { name: "face5", value: 5 },
+    { name: "face1", value: isSuccess && result.data.score1 },
+    { name: "face2", value: isSuccess && result.data.score2 },
+    { name: "face3", value: isSuccess && result.data.score3 },
+    { name: "face4", value: isSuccess && result.data.score4 },
+    { name: "face5", value: isSuccess && result.data.score5 },
   ];
 
   const COLORS = ["#FFA74F", "#FFBE98", "#60C8B3", "#E881A6", "#CE3375"];
@@ -57,7 +59,7 @@ useEffect(() => {
   return (
     <div id="cont-graphic">
       <div>
-      <Navbar />
+        <Navbar />
       </div>
       <h1 id="h1-que">Que Tal Tus Dias</h1>
       <div id="face">
