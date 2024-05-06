@@ -4,6 +4,7 @@ import Cookies from "universal-cookie"; // °° para validar si esta o no logead
 import Swal from "sweetalert2";
 import Navbar from "../Navbar";
 import "../../styles/Creation.css";
+
 import articulos from "./articulosData";
 
 const Update = () => {
@@ -12,6 +13,7 @@ const Update = () => {
   const [image, setImage] = useState(null);
   const [link, setLink] = useState("");
   const [publicationDate, setPublicationDate] = useState("");
+
   /*const cookie = new Cookies(); // °° para validar si esta o no logeado
 
   Session de usuario

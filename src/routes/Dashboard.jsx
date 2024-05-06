@@ -8,7 +8,11 @@ import { GetUser } from "../hooks/UserHook";
 import { role } from "../querys/User.query";
 
 function Dashboard() {
+
   //const [userName, setUserName] = useState("");
+
+  const [userName, setUserName] = useState("");
+
   const navigate = useNavigate();
   const cookie = new Cookies();
   const cook = cookie.get('id')
@@ -28,10 +32,20 @@ function Dashboard() {
   //  fetchUserName();
   //},[]);
 
+  useEffect(() => {
+    //cargar el nombre de usuario desde la base de datos
+    const fetchUserName = async () => {
+      const fetchedUserName = "Elvis Quito";
+      setUserName(fetchedUserName);
+    };
+
+    fetchUserName();
+  },[]);
+
   return (
     <div className="rp-cont">
       <Navbar />
-      <h1>Bienvenido {isSuccess && result.data.UserName}</h1>
+      <h1 id="name">Hola {userName} Bienvenido </h1>
       <div id="space">
 
         <Link to="/Habitos">
@@ -72,12 +86,14 @@ function Dashboard() {
             <label> Mindfulness </label>
           </button>
         </Link>
+
         <Link to="/Texts">
           <button className="space-option">
             <img src="https://imgur.com/JkSEd9K.png" className="option-icon" />
             <label> Saber Más </label>
           </button>
         </Link>
+
         {role === 2 && (
           <Link to="/AllUsers">
             <button className="space-option">
@@ -86,6 +102,7 @@ function Dashboard() {
             </button>
           </Link>)
         }
+
 
       </div>
     </div>

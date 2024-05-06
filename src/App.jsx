@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./routes/Login";
 import ResetPass from "./routes/ResetPass";
 import NotFound from "./routes/NotFound";
+
 import Dashboard from "./routes/Dashboard"; //galleta // Corrige la importación a Dashboar
 import Reset from "./routes/Reset";
 import LogOut from "./routes/LogOut";
@@ -53,14 +54,18 @@ const App = () => {
           {/** ruta para el componente Creation */}
           <Route path="/Update" element={<Update />} />
           {/** ruta para el componente Update */}
+
           <Route path="/OneArticle/:id" element={<OneArticle />} />
+
           {/** ruta para el componente OneArticle con un parámetro de ID*/}
         <Route path="/time-out" element={<LogOut />} />
         {/** ruta para cerrar sesion */}
         <Route path="*" element={<NotFound />} />
         {/** ruta de manejo de error */}
         <Route path="/Nav" element={<Nav />} />
+
         <Route path="/AllUsers" element={<AllUserAdmin/>}/>
+
       </Routes>
     </Router>
   );

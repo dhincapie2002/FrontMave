@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import "../styles/Texts.css"; // Archivo de estilos CSS
 import Navbar from "../components/Navbar";
@@ -50,9 +51,12 @@ const {data:result, isSuccess} = GetAllArticles(cook);
         </div>
       </div>
       <p>Total de artículos: {totalArticulos}</p>
+
       {rol === 3 && (<button onClick={() => navigate(`/Creation`)} >Añadir Articulo</button>)}
+
     </div>
   );
 };
 
 export default Texts;
+

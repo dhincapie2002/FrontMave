@@ -1,7 +1,8 @@
+
 import React, { useState, useEffect } from "react";
 import "../../styles/OneArticle.css"; // Archivo de estilos CSS
 import Navbar from "../Navbar";
-import { useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 //import articulos from "./articulosData";
 import Cookies from "universal-cookie";
 import { GetAllArticles } from "../../hooks/Article";
@@ -35,13 +36,12 @@ const articulos = isSuccess && result.data;
   const handleNavigateToTexts = () => {
     navigate("/Texts");
   };
-
   const mostrarSiguienteArticulo = () => {
     setIndiceArticulo((indiceArticulo + 1) % articulos.length);
-  };
 
   const mostrarArticuloAnterior = () => {
     const nuevoIndice =
+
       indiceArticulo - 1 < 0 ? articulos.length - 1 : indiceArticulo - 1;
     setIndiceArticulo(nuevoIndice);
   };
@@ -88,4 +88,6 @@ const articulos = isSuccess && result.data;
   );
 };
 
+
 export default OneArticle;
+
