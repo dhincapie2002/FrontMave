@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import "../styles/Texts.css"; // Archivo de estilos CSS
 import Navbar from "../components/Navbar";
@@ -35,13 +36,13 @@ const {data:result, isSuccess} = GetAllArticles(cook);
       <h1>Artículos que te pueden interesar</h1>
       <div id="article-m" className="scrollable">
         <div id="aricle-mar">
+
           {isSuccess && articles.map((articulo, index) => (
             <div key={index} className="cat-article">
               <div id="texts-uno">
                 <button
                   id="btn-texts-uno"
-                  onClick={() => handleNavigateToOneArticle(index)}
-                >
+                  onClick={() => handleNavigateToOneArticle(index)}>
                   <h2 id="titulo-variosm">{articulo.articleName}</h2>
                 </button>
               </div>
@@ -51,8 +52,9 @@ const {data:result, isSuccess} = GetAllArticles(cook);
       </div>
       <p>Total de artículos: {totalArticulos}</p>
       {rol === 3 && (<button onClick={() => navigate(`/Creation`)} >Añadir Articulo</button>)}
+
     </div>
   );
 };
-
 export default Texts;
+

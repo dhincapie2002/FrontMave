@@ -28,6 +28,16 @@ function Dashboard() {
   //  fetchUserName();
   //},[]);
 
+  useEffect(() => {
+    //cargar el nombre de usuario desde la base de datos
+    const fetchUserName = async () => {
+      const fetchedUserName = "Elvis Quito";
+      setUserName(fetchedUserName);
+    };
+
+    fetchUserName();
+  },[]);
+
   return (
     <div className="rp-cont">
       <Navbar />
@@ -86,6 +96,7 @@ function Dashboard() {
             </button>
           </Link>)
         }
+
 
       </div>
     </div>

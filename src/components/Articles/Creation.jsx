@@ -14,12 +14,6 @@ const Creation = () => {
   
   const cookie = new Cookies(); // °° para validar si esta o no logeado
 
-  const cook = cookie.get('id')
-  useEffect(() => {
- if (!cook) {
-   navigate('/time-out')
-}
-}, [])
 
 const handleSubmit = (e) => {
     e.preventDefault();

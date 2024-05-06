@@ -69,6 +69,7 @@ const InicioSession = () => {
                     })}
                 />
                 <span className="verPass" onClick={() => setPass(!pass)}>{pass ? <img src="./src/image/icon/eyeClose.svg" alt="eye" className="eye"></img>: <img src="./src/image/icon/eyeOpen.svg" alt="eye" className="eye"></img>}</span>
+
                 {errors.password && <span className={'alert'}>{errors.password.message}</span>}
             </div>
 

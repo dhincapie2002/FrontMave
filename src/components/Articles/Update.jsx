@@ -12,6 +12,7 @@ const Update = () => {
   const [image, setImage] = useState(null);
   const [link, setLink] = useState("");
   const [publicationDate, setPublicationDate] = useState("");
+
   /*const cookie = new Cookies(); // °° para validar si esta o no logeado
 
   Session de usuario
@@ -119,3 +120,4 @@ return (
 );
 };
 export default Update;
+

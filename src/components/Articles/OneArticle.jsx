@@ -32,6 +32,7 @@ const articulos = isSuccess && result.data;
     navigate(`/oneArticle/${indiceArticulo + 1}`);
   }, [indiceArticulo, navigate]);
 
+
   const handleNavigateToTexts = () => {
     navigate("/Texts");
   };
@@ -41,8 +42,7 @@ const articulos = isSuccess && result.data;
   };
 
   const mostrarArticuloAnterior = () => {
-    const nuevoIndice =
-      indiceArticulo - 1 < 0 ? articulos.length - 1 : indiceArticulo - 1;
+    const nuevoIndice = indiceArticulo - 1 < 0 ? articulos.length - 1 : indiceArticulo - 1;
     setIndiceArticulo(nuevoIndice);
   };
 
@@ -63,6 +63,7 @@ const articulos = isSuccess && result.data;
         <h2 id="date">{isSuccess && articulo.date}</h2>
         <a
           href={isSuccess && articulo.link}
+
           target="_blank"
           rel="noopener noreferrer"
           id="boton-ver"
@@ -87,5 +88,5 @@ const articulos = isSuccess && result.data;
     </div>
   );
 };
-
 export default OneArticle;
+
