@@ -21,7 +21,7 @@ const OneArticle = () => {
 const {data:result, isSuccess} = GetAllArticles(cook);
 const users = isSuccess && result.data;
   const { id } = useParams(); // Obtener el valor del parámetro de la ruta
-
+ 
   // Verificar si el ID es válido y obtener el artículo correspondiente
   const indiceInicial = parseInt(id) - 1;
   const [indiceArticulo, setIndiceArticulo] = useState(indiceInicial);
