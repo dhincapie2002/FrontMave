@@ -20,6 +20,7 @@ import Update from "./components/Articles/Update";
 import OneArticle from "./components/Articles/OneArticle"; //galleta
 import AllUserAdmin from "./routes/AllUserAdmin";
 
+
 const App = () => {
   return (
     <Router>
@@ -53,7 +54,9 @@ const App = () => {
           {/** ruta para el componente Creation */}
           <Route path="/Update" element={<Update />} />
           {/** ruta para el componente Update */}
+
           <Route path="/OneArticle/:id" element={<OneArticle />} />
+
           {/** ruta para el componente OneArticle con un parámetro de ID*/}
         <Route path="/time-out" element={<LogOut />} />
         {/** ruta para cerrar sesion */}
@@ -61,6 +64,7 @@ const App = () => {
         {/** ruta de manejo de error */}
         <Route path="/Nav" element={<Nav />} />
         <Route path="/AllUsers" element={<AllUserAdmin/>}/>
+
       </Routes>
     </Router>
   );

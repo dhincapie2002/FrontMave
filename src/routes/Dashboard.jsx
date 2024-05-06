@@ -9,6 +9,7 @@ import { role } from "../querys/User.query";
 
 function Dashboard() {
   //const [userName, setUserName] = useState("");
+
   const navigate = useNavigate();
   const cookie = new Cookies();
   const cook = cookie.get('id')
@@ -27,6 +28,16 @@ function Dashboard() {
   //
   //  fetchUserName();
   //},[]);
+
+  useEffect(() => {
+    //cargar el nombre de usuario desde la base de datos
+    const fetchUserName = async () => {
+      const fetchedUserName = "Elvis Quito";
+      setUserName(fetchedUserName);
+    };
+
+    fetchUserName();
+  },[]);
 
   return (
     <div className="rp-cont">
@@ -86,6 +97,7 @@ function Dashboard() {
             </button>
           </Link>)
         }
+
 
       </div>
     </div>

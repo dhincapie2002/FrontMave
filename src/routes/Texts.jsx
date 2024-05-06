@@ -51,8 +51,9 @@ const {data:result, isSuccess} = GetAllArticles(cook);
       </div>
       <p>Total de artículos: {totalArticulos}</p>
       {rol === 3 && (<button onClick={() => navigate(`/Creation`)} >Añadir Articulo</button>)}
+
     </div>
   );
 };
-
 export default Texts;
+

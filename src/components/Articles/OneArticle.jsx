@@ -1,7 +1,8 @@
+
 import React, { useState, useEffect } from "react";
 import "../../styles/OneArticle.css"; // Archivo de estilos CSS
 import Navbar from "../Navbar";
-import { useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 //import articulos from "./articulosData";
 import Cookies from "universal-cookie";
 import { GetAllArticles } from "../../hooks/Article";
@@ -31,6 +32,10 @@ const articulos = isSuccess && result.data;
     // Actualizar la URL cuando cambia el índice del artículo
     navigate(`/oneArticle/${indiceArticulo + 1}`);
   }, [indiceArticulo, navigate]);
+import {  useNavigate } from "react-router-dom";
+
+const OneArticle = () => {
+  const navigate = useNavigate();
 
   const handleNavigateToTexts = () => {
     navigate("/Texts");
@@ -38,16 +43,21 @@ const articulos = isSuccess && result.data;
 
   const mostrarSiguienteArticulo = () => {
     setIndiceArticulo((indiceArticulo + 1) % articulos.length);
+
   };
 
   const mostrarArticuloAnterior = () => {
-    const nuevoIndice =
-      indiceArticulo - 1 < 0 ? articulos.length - 1 : indiceArticulo - 1;
+    const nuevoIndice = indiceArticulo - 1 < 0 ? articulos.length - 1 : indiceArticulo - 1;
     setIndiceArticulo(nuevoIndice);
   };
 
   const articulo = articulos[indiceArticulo];
   console.log(articulo)
+
+
+  const numeroArticuloActual = indiceArticulo + 1;
+  const totalArticulos = articulosEjemplo.length;
+
   return (
     <div className="rp-cont">
       <Navbar />
@@ -87,5 +97,4 @@ const articulos = isSuccess && result.data;
     </div>
   );
 };
-
 export default OneArticle;
