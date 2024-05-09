@@ -1,0 +1,22 @@
+#space-mind {
+    margin-top: -10%;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.space-option label {
+    display: block;
+    text-align: center;
+  }
+
+#info{
+    background-color: white;
+    color:  rgb(30, 105, 196);
+}
+
+#space-mind{
+    margin-top: -8%;
+    margin-bottom: 10px;
+}

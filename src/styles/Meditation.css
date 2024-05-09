@@ -1,0 +1,10 @@
+#btn-video{
+    margin-top: 3%;
+    width: 80%;
+}
+#btn-random{
+    background-color: transparent;
+    color:  rgb(30, 105, 196);
+    border-radius: 100%;
+    margin-top: -5%;
+}
