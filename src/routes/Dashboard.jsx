@@ -63,7 +63,7 @@ function Dashboard() {
           </button>
         </Link>
 
-        <Link to="/Dashboard">
+        <Link to="/Mindfulness">
           <button className="space-option">
             <img
               src="./src/image/Dashboard/Mindfulness.svg"
@@ -78,6 +78,17 @@ function Dashboard() {
             <label> Saber Más </label>
           </button>
         </Link>
+
+        <Link to="/Meditation">
+          <button className="space-option">
+            <img
+              src="https://imgur.com/MmClulV.png"
+              className="option-icon"
+            />
+            <label> Meditación </label>
+          </button>
+        </Link>
+
         {role === 2 && (
           <Link to="/AllUsers">
             <button className="space-option">

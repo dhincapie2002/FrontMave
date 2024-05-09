@@ -20,6 +20,8 @@ import Update from "./components/Articles/Update";
 import OneArticle from "./components/Articles/OneArticle"; //galleta
 import AllUserAdmin from "./routes/AllUserAdmin";
 import OneUsers from "./components/Users/User";
+import Mindfulness from "./routes/Mindfulness";
+import Meditation from "./routes/Meditation"
 
 const App = () => {
   return (
@@ -63,6 +65,8 @@ const App = () => {
         <Route path="/Nav" element={<Nav />} />
         <Route path="/AllUsers" element={<AllUserAdmin/>}/>
           <Route path="/OneUser/:id" element= {<OneUsers/>}/>
+          <Route path="/Mindfulness" element= {<Mindfulness/>}/>
+          <Route path="/Meditation" element= {<Meditation/>}/>
       </Routes>
     </Router>
   );

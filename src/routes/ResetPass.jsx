@@ -42,7 +42,7 @@ const ForgotPassword = () => {
                 </button>
 
                 {
-                    mutacion.isPending && <span><img className="Loading" src="https://i.gifer.com/XVo6.gif" alt="Cargando" /></span>
+                    mutacion.isPending && <span><img className="Loading" src="https://mvalma.com/inicio/public/include/img/ImagenesTL/paginaTL/Cargando.gif" alt="Cargando" /></span>
                 }
                 {
                     mutacion.isSuccess && <span>Verifique su E-mail</span>
