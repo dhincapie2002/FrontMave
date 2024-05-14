@@ -11,7 +11,7 @@ function GraphicsMood() {
   /* import Cookies from "universal-cookie"; */
   const cook = new Cookies()
   let idUsuario = cook.get(`id`)
-  const { data: result, isSuccess } = GetGraficsMood(idUsuario)
+  const { data: result, isSuccess, isLoading } = GetGraficsMood(idUsuario)
   console.log(result)
   useEffect(() => {
     if (!cook) {
@@ -104,8 +104,10 @@ function GraphicsMood() {
           <div className="description">Muy Malo</div>
         </div>
       </div>
-
-      <ResponsiveContainer width="100%" height={300}>
+      {
+        isLoading ? <span><img className="Loading" src="https://mvalma.com/inicio/public/include/img/ImagenesTL/paginaTL/Cargando.gif" alt="Cargando" /></span>
+        :
+        <ResponsiveContainer width="100%" height={300}>
         <PieChart>
           <Pie
             data={data}
@@ -126,6 +128,8 @@ function GraphicsMood() {
           </Pie>
         </PieChart>
       </ResponsiveContainer>
+      }
+      
     </div>
   );
 }

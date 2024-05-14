@@ -32,7 +32,7 @@ function Dashboard() {
     <div className="rp-cont">
       <Navbar />
       <h1>Bienvenido {isSuccess && result.data.UserName}</h1>
-      <div id="space">
+      <div id="space" className="scrollable-dashboard">
 
         <Link to="/Habitos">
           {" "}

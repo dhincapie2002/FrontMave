@@ -4,54 +4,52 @@ import Cookies from "universal-cookie"; // °° para validar si esta o no logead
 import Swal from "sweetalert2";
 import Navbar from "../Navbar";
 import "../../styles/Creation.css";
+import { SetArticle } from "../../hooks/Article";
 
 const Creation = () => {
   const navigate = useNavigate(); // °3°useNavigate para poder navegar entre pestañas
   const [title, setTitle] = useState("");
+  const [resume, setResume] = useState("");
   const [image, setImage] = useState(null);
   const [link, setLink] = useState("");
   const [publicationDate, setPublicationDate] = useState("");
-  
+
   const cookie = new Cookies(); // °° para validar si esta o no logeado
 
   const cook = cookie.get('id')
   useEffect(() => {
- if (!cook) {
-   navigate('/time-out')
-}
-}, [])
+    if (!cook) {
+      navigate('/time-out')
+    }
+  }, [])
 
-const handleSubmit = (e) => {
+  const mutacion = SetArticle()
+  const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     // Verificar si algún campo está vacío
-    if (!title || !image || !link || !publicationDate) {
+    if (!title || !image || !link || !publicationDate || !resume) {
       // Mostrar alerta si algún campo está vacío
       Swal.fire({
         title: 'Por favor completa todos los campos',
         icon: 'warning',
         confirmButtonColor: '#1B5091',
-        backdrop: "linear-gradient(to right, #60C8B3, #1B5091)", 
+        backdrop: "linear-gradient(to right, #60C8B3, #1B5091)",
       });
       return; // Detener el envío del formulario si algún campo está vacío
     }
+    const articleData = {
+      title: title,
+      resume: resume,
+      image: image,
+      link: link,
+      publicationDate: publicationDate
+    };
+    console.log(articleData)
+    mutacion.mutate(articleData)
+   
     
-    // Si todos los campos están diligenciados, enviar el formulario
-    console.log(
-      "Datos del formulario:",
-      title,
-      link,
-      publicationDate,
-      image
-    );
-    Swal.fire({
-        title: 'El recurso fue cargado con exito',
-        icon: 'success',
-        confirmButtonColor: '#1B5091',
-        backdrop: "linear-gradient(to right, #60C8B3, #1B5091)", 
-      });
-    navigate("/otra-ruta");
-  };  
+  }
 
   return (
     <div className="rp-cont">
@@ -65,6 +63,15 @@ const handleSubmit = (e) => {
             id="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
+        <div className="form-cam">
+          <label htmlFor="resume">Resumen:</label>
+          <input className="form-cam-inp"
+            type="text"
+            id="resume"
+            value={resume}
+            onChange={(e) => setResume(e.target.value)}
           />
         </div>
         <div className="form-cam">
@@ -95,6 +102,21 @@ const handleSubmit = (e) => {
           />
         </div>
         <button id="form-btn" type="submit">Guardar</button>
+        {
+                mutacion.isPending && <span><img className="Loading" src="https://mvalma.com/inicio/public/include/img/ImagenesTL/paginaTL/Cargando.gif" alt="Cargando" /></span>
+            }
+            {
+                mutacion.isSuccess && Swal.fire({
+                  title: 'El recurso fue cargado con exito',
+                  icon: 'success',
+                  confirmButtonColor: '#1B5091',
+                  backdrop: "linear-gradient(to right, #60C8B3, #1B5091)",
+                })
+                &&  navigate("/Texts")
+            }
+            {
+                mutacion.isError && <span>Parece que algo fallo, intenta de nuevo</span>
+            }
       </form>
     </div>
   );
