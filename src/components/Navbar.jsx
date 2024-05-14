@@ -3,20 +3,16 @@ import { Link, useNavigate } from "react-router-dom";
 import "../styles/Navbar.css";
 import Swal from "sweetalert2";
 import Cookies from "universal-cookie";
+import { GetNotifyAdd } from "../hooks/Notify";
 
 function Navbar() {
   const navigate = useNavigate();
 
   /* Cookie */
   /* import Cookies from "universal-cookie"; */
-  /*const cookie = new Cookies();
-const cook = cookie.get('id')
-useEffect(() => {
-  if (!cook) {
-    navigate('/time-out') // Hay que crear la ruta time out que es el cierre de sesioón
-  }
-}, [])
-/* Cookie */
+  const cookie = new Cookies();
+  const cook = cookie.get('id')
+
 
   const handleLogout = () => {
     Swal.fire({
@@ -34,11 +30,12 @@ useEffect(() => {
       }
     });
   };
-  const [messages] = useState("aqui va el mensaje");
+  const { data: result, isSuccess } = GetNotifyAdd(cook)
+  const messages = isSuccess && result.data.message;
 
   const handleMessages = () => {
     Swal.fire({
-      title: "! Eres valioso ¡, por eso te recordamos que: ",
+      title: "! Eres valioso ¡ ",
       text: messages,
       confirmButtonText: "Gracias",
       width: 600,

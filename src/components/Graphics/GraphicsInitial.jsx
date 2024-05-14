@@ -10,7 +10,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 function GraphicsInitial() {
   const cook = new Cookies()
   let idUsuario = cook.get('id')
-  const { data: result, isSuccess } = GetGraficsIni(idUsuario)
+  const { data: result, isSuccess, isLoading } = GetGraficsIni(idUsuario)
   console.log(result)
   /* Cookie */
   /* import Cookies from "universal-cookie"; */
@@ -95,7 +95,10 @@ function GraphicsInitial() {
         </header>
       </div>
       <span>
-        <ResponsiveContainer width={600} aspect={1}>
+        {
+          isLoading ? <span><img className="Loading" src="https://mvalma.com/inicio/public/include/img/ImagenesTL/paginaTL/Cargando.gif" alt="Cargando" /></span>
+          :
+          <ResponsiveContainer width={600} aspect={1}>
           <RadarChart outerRadius="70%" data={data} margin={{ top: 5, right: 5, bottom: 5, left: 5 }}>
             <PolarGrid />
             <PolarAngleAxis dataKey="subject" tick={{ fill: 'white', fontSize: 18, stroke: 'black', strokeWidth: 0.1 }} />
@@ -104,6 +107,7 @@ function GraphicsInitial() {
             <Radar name="UserName" dataKey="A" stroke="#FFFFFF" fill="#FFA74F" fillOpacity={0.8} />
           </RadarChart>
         </ResponsiveContainer>
+        }
       </span >
       {tooltipContent && ReactDOM.createPortal(
         <div

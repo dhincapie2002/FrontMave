@@ -9,7 +9,7 @@ const AllUserAdmin= () =>{
     const navigate = new useNavigate()
     const cook = new Cookies()
     const IdUser = cook.get(`id`)
-    const {data:result , isSuccess} = GetAllUsersFromAdmin(IdUser)
+    const {data:result , isSuccess, isLoading} = GetAllUsersFromAdmin(IdUser)
     const UsersComplete = isSuccess && result.data // obtener todos los usarios
     console.log(UsersComplete)
     const handleNavigateUsers = (index) => { // Pasa el índice del artículo como argumento
@@ -21,18 +21,21 @@ const AllUserAdmin= () =>{
       <h1>Listado de usuarios</h1>
       <div id="article-m" className="scrollable">
         <div id="aricle-mar">
-          {isSuccess && UsersComplete.map((User, index) => (
-            <div key={index} className="cat-article">
-              <div id="texts-uno">
-                <button
-                  id="btn-texts-uno"
-                  onClick={() => handleNavigateUsers(index)}
-                >
-                  <h2 id="titulo-variosm">{User.userName}</h2>
-                </button>
+          {
+            isLoading ? <span><img className="Loading" src="https://mvalma.com/inicio/public/include/img/ImagenesTL/paginaTL/Cargando.gif" alt="Cargando" /></span>
+            :isSuccess && UsersComplete.map((User, index) => (
+              <div key={index} className="cat-article">
+                <div id="texts-uno">
+                  <button
+                    id="btn-texts-uno"
+                    onClick={() => handleNavigateUsers(index)}
+                  >
+                    <h2 id="titulo-variosm">{User.userName}</h2>
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
     </div>

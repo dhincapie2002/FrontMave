@@ -61,4 +61,9 @@ header {
   justify-content: space-evenly;
   color: #1B5091;
 }
+.scrollable-dashboard{
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 7%;
+}
   

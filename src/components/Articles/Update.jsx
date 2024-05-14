@@ -5,10 +5,12 @@ import Swal from "sweetalert2";
 import Navbar from "../Navbar";
 import "../../styles/Creation.css";
 import articulos from "./articulosData";
+import { SetArticle } from "../../hooks/Article";
 
 const Update = () => {
   const navigate = useNavigate(); // °3°useNavigate para poder navegar entre pestañas
   const [title, setTitle] = useState("");
+  const [resume, setResume] = useState("");
   const [image, setImage] = useState(null);
   const [link, setLink] = useState("");
   const [publicationDate, setPublicationDate] = useState("");
@@ -21,9 +23,9 @@ const Update = () => {
    navigate('/time-out')
 }
 }, [])*/
-
+const mutacion = SetArticle()
 const handleSubmit = (e) => {
-  e.preventDefault();
+  
   
   // Verificar si algún campo está vacío
   if (!title || !image || !link || !publicationDate) {
@@ -37,13 +39,7 @@ const handleSubmit = (e) => {
     return; // Detener el envío del formulario si algún campo está vacío
   }
   // Si todos los campos están diligenciados, enviar el formulario
-  console.log(
-    "Datos del formulario:",
-    title,
-    link,
-    publicationDate,
-    image
-  );
+  console.log(e);
   Swal.fire({
       title: '¿Esta seguro de guardar los cambios?',
       icon: 'success',
@@ -63,6 +59,7 @@ const handleSubmit = (e) => {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
+        mutacion.mutate(e)
         Swal.fire("Cambios guardados", "", "success");
         navigate("/Texts");
       } else if (result.isDenied) {
@@ -84,6 +81,15 @@ return (
           id="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+        />
+      </div>
+      <div className="form-cam">
+        <label htmlFor="resume">Resumen:</label>
+        <input className="form-cam-inp"
+          type="text"
+          id="resume"
+          value={resume}
+          onChange={(e) => setResume(e.target.value)}
         />
       </div>
       <div className="form-cam">

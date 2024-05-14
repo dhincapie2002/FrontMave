@@ -20,7 +20,7 @@ useEffect(() => {
     navigate('/time-out') // Hay que crear la ruta time out que es el cierre de sesioón
   }
 }, [])
-const {data:result, isSuccess} = GetAllArticles(cook);
+const {data:result, isSuccess, isLoading} = GetAllArticles(cook);
   const articles = isSuccess && result.data;
 /* Cookie */
   const totalArticulos = articles.length;
@@ -35,7 +35,10 @@ const {data:result, isSuccess} = GetAllArticles(cook);
       <h1>Artículos que te pueden interesar</h1>
       <div id="article-m" className="scrollable">
         <div id="aricle-mar">
-          {isSuccess && articles.map((articulo, index) => (
+          {
+          isLoading ? <span><img className="Loading" src="https://mvalma.com/inicio/public/include/img/ImagenesTL/paginaTL/Cargando.gif" alt="Cargando" /></span>
+          :
+          isSuccess && articles.map((articulo, index) => (
             <div key={index} className="cat-article">
               <div id="texts-uno">
                 <button
