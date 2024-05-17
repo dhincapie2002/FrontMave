@@ -7,6 +7,7 @@ const cook = new Cookies()
 let tokenA = cook.get(`token`)
 let idUser = cook.get(`id`)
 export let role
+export let username
 export async function GetUserInfo(id) {
     const result = await axios.get(`${URL}/User/GetUserInfo/${id}`, {
         headers: {
@@ -14,6 +15,7 @@ export async function GetUserInfo(id) {
         }
     })
     role = result.data.RoleId
+    username = result.data.UserName
     return result;
 }
 export async function GetAllUsers(id) {
@@ -26,9 +28,6 @@ export async function GetAllUsers(id) {
 }
 export async function ActUser(data) {
     return await axios.put(`${URL}/User/UpdateUser/${data.Id}`, {
-        userName:data.name,
-        email: data.email,
-        phone: data.phone,
         idRole: data.rol
     },
     {

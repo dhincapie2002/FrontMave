@@ -22,6 +22,7 @@ import AllUserAdmin from "./routes/AllUserAdmin";
 import OneUsers from "./components/Users/User";
 import Mindfulness from "./routes/Mindfulness";
 import Meditation from "./routes/Meditation"
+import Report from "./routes/Report"
 
 const App = () => {
   return (
@@ -67,6 +68,7 @@ const App = () => {
           <Route path="/OneUser/:id" element= {<OneUsers/>}/>
           <Route path="/Mindfulness" element= {<Mindfulness/>}/>
           <Route path="/Meditation" element= {<Meditation/>}/>
+        <Route path="/Report" element={<Report/>}></Route>
       </Routes>
     </Router>
   );

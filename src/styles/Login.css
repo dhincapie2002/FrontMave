@@ -5,16 +5,22 @@
     font-family: "Lilita One", sans-serif;
     font-weight: 400;
     font-style: normal;
-  }
-:root{
+}
+
+:root {
     background-color: #272020;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    height: auto;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 7%;
 }
 
-body{/*Degradado de fondo*/
+body {
+    /*Degradado de fondo*/
     font-family: "Lilita One", sans-serif;
     background-color: #c9d6ff;
     background: linear-gradient(to right, #60C8B3, #1B5091);
@@ -24,10 +30,12 @@ body{/*Degradado de fondo*/
     flex-direction: column;
     height: 100vh;
 }
+
 /*linea de la mitad*/
-.container{
+.container {
     /*Luz de fondo*/
     background: #60C8B3;
+    margin-top: 5%;
     border-radius: 30px;
     box-shadow: 0 5px 15px #c9d6ff;
     position: relative;
@@ -38,7 +46,7 @@ body{/*Degradado de fondo*/
     font-family: "Lilita One", sans-serif;
 }
 
-.container p{
+.container p {
     /*Texto abajo del logo registrarse*/
     color: #FFFF;
     font-size: 25px;
@@ -49,15 +57,19 @@ body{/*Degradado de fondo*/
     line-height: 30px;
     text-shadow: 0 0 5px black;
 }
+
 .acronym {
     /*Texto abajo del logo ingresar*/
     font-size: 20px;
     line-height: 20px;
     font-family: "Lilita One", sans-serif;
     color: #CE3375;
+
     &:not(br) {
-        font-size: 25px; /* Tamaño de fuente para letras en mayúscula */
-        color: #FFFF; /* Color de texto para letras en mayúscula */
+        font-size: 25px;
+        /* Tamaño de fuente para letras en mayúscula */
+        color: #FFFF;
+        /* Color de texto para letras en mayúscula */
         letter-spacing: 1px;
         line-height: 30px;
         margin: 10px 0;
@@ -65,12 +77,12 @@ body{/*Degradado de fondo*/
     }
 }
 
-.container span{
+.container span {
     font-size: 20px;
     font-family: 'Lilita One', Times, serif;
 }
 
-.container a{
+.container a {
     color: #FFFF;
     font-size: 17px;
     text-decoration: none;
@@ -79,7 +91,7 @@ body{/*Degradado de fondo*/
     text-shadow: 0 0 5px black;
 }
 
-.container button{
+.container button {
     /*Boton de ingresar*/
     background-color: rgb(30, 105, 196);
     color: #fff;
@@ -95,13 +107,14 @@ body{/*Degradado de fondo*/
     font-family: 'Lilita One', Times, serif;
 }
 
-.container button.hidden{
+.container button.hidden {
     background-color: transparent;
     border-color: #ffffff;
 
 }
+
 /*Fondo*/
-.container form{
+.container form {
     background-color: #60C8B3;
     display: flex;
     align-items: center;
@@ -118,7 +131,7 @@ body{/*Degradado de fondo*/
     text-shadow: none;
 }
 
-.container input{
+.container input {
     /*Cajas de texto*/
     background-color: #FFFF;
     border: none;
@@ -131,7 +144,7 @@ body{/*Degradado de fondo*/
     font-family: 'Lilita One', Times, serif;
 }
 
-.form-container{
+.form-container {
     position: absolute;
     top: 0;
     background: red;
@@ -140,14 +153,14 @@ body{/*Degradado de fondo*/
     transition: all 0.6s ease-in-out;
 }
 
-.sign-in{
+.sign-in {
     left: 50%;
     width: 50%;
     z-index: 2;
 }
 
 
-.sign-up{
+.sign-up {
     left: 50%;
     width: 50%;
     opacity: 0;
@@ -156,22 +169,26 @@ body{/*Degradado de fondo*/
 
 
 
-@keyframes move{
-    0%, 49.99%{
+@keyframes move {
+
+    0%,
+    49.99% {
         opacity: 0;
         z-index: 1;
     }
-    50%, 100%{
+
+    50%,
+    100% {
         opacity: 1;
         z-index: 5;
     }
 }
 
-.social-icons{
+.social-icons {
     margin: 20px 0;
 }
 
-.social-icons a{
+.social-icons a {
     border: 1px solid #050c9f;
     border-radius: 20%;
     display: inline-flex;
@@ -182,7 +199,7 @@ body{/*Degradado de fondo*/
     height: 40px;
 }
 
-.toggle-container{
+.toggle-container {
     position: absolute;
     top: 0;
     left: 50%;
@@ -194,7 +211,7 @@ body{/*Degradado de fondo*/
     z-index: 1000;
 }
 
-.container.active .toggle-container{
+.container.active .toggle-container {
     transform: translateX(-100%);
     border-radius: 0 150px 100px 0;
 }
@@ -206,22 +223,24 @@ body{/*Degradado de fondo*/
     background: linear-gradient(to right, #6EA1D4, #60C8B3);
     /* Color de texto de bienvenida */
     color: #ffffff;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 3px 0 #000; /* Contorno del texto */
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 3px 0 #000;
+    /* Contorno del texto */
     position: relative;
     left: -100%;
     height: 100%;
     width: 200%;
     transform: translateX(0);
     transition: all 0.6s ease-in-out;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Agrega una sombra suave al elemento */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Agrega una sombra suave al elemento */
 }
 
 
-.container.active .toggle{
+.container.active .toggle {
     transform: translateX(50%);
 }
 
-.toggle-panel{
+.toggle-panel {
     position: absolute;
     width: 50%;
     height: 100%;
@@ -236,20 +255,20 @@ body{/*Degradado de fondo*/
     transition: all 0.6s ease-in-out;
 }
 
-.toggle-left{
+.toggle-left {
     transform: translateX(-200%);
 }
 
-.container.active .toggle-left{
+.container.active .toggle-left {
     transform: translateX(0);
 }
 
-.toggle-right{
+.toggle-right {
     right: 0;
     transform: translateX(0);
 }
 
-.container.active .toggle-right{
+.container.active .toggle-right {
     transform: translateX(200%);
 }
 

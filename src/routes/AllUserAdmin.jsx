@@ -11,7 +11,6 @@ const AllUserAdmin= () =>{
     const IdUser = cook.get(`id`)
     const {data:result , isSuccess, isLoading} = GetAllUsersFromAdmin(IdUser)
     const UsersComplete = isSuccess && result.data // obtener todos los usarios
-    console.log(UsersComplete)
     const handleNavigateUsers = (index) => { // Pasa el índice del artículo como argumento
         navigate(`/OneUser/${index + 1}`); // Añade el índice al URL
     };

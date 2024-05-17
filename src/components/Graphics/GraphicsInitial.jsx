@@ -1,17 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Tooltip } from 'recharts';
-import Navbar from "../../components/Navbar";
 import { GetGraficsIni } from "../../hooks/Grafics";
 import Cookies from "universal-cookie";
+import "../../styles/HeaderPrint.css";
+import "../../styles/OneArticle.css";
 import NavBar from "../Navbar"
 import ReactDOM from "react-dom";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
 function GraphicsInitial() {
+  const navigate = useNavigate();
   const cook = new Cookies()
   let idUsuario = cook.get('id')
   const { data: result, isSuccess, isLoading } = GetGraficsIni(idUsuario)
-  console.log(result)
   /* Cookie */
   /* import Cookies from "universal-cookie"; */
   useEffect(() => {
@@ -57,6 +58,9 @@ function GraphicsInitial() {
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
   const [tooltipContent, setTooltipContent] = useState(null);
   const tooltipRef = useRef(null);
+  const handleGenerarReporte =()=>{
+    navigate('/Report') 
+  }
 
   function getTooltipPosition(subject) {
     switch (subject) {
@@ -65,7 +69,7 @@ function GraphicsInitial() {
       case 'Estable':
         return { y: '70%', x: '57%' };
       case 'Concienzudo':
-        return { y: '70%', x: '21%' };
+        return { y: '21%', x: '70%' };
       case 'Influyente':
         return { y: '23%', x: '21%' };
       default:
@@ -91,22 +95,22 @@ function GraphicsInitial() {
       <div className="Container">
         <NavBar />
         <header className="header-print">
-          <span className="mave-print">Estadisticas Iniciales</span>
+          <h1 className="mave-print">Estadisticas Iniciales</h1>
         </header>
       </div>
       <span>
         {
           isLoading ? <span><img className="Loading" src="https://mvalma.com/inicio/public/include/img/ImagenesTL/paginaTL/Cargando.gif" alt="Cargando" /></span>
-          :
-          <ResponsiveContainer width={600} aspect={1}>
-          <RadarChart outerRadius="70%" data={data} margin={{ top: 5, right: 5, bottom: 5, left: 5 }}>
-            <PolarGrid />
-            <PolarAngleAxis dataKey="subject" tick={{ fill: 'white', fontSize: 18, stroke: 'black', strokeWidth: 0.1 }} />
-            <PolarRadiusAxis />
-            <Tooltip content={<CustomTooltip />} />
-            <Radar name="UserName" dataKey="A" stroke="#FFFFFF" fill="#FFA74F" fillOpacity={0.8} />
-          </RadarChart>
-        </ResponsiveContainer>
+            :
+            <ResponsiveContainer width={600} height={300} aspect={1}>
+              <RadarChart outerRadius="90%" data={data} margin={{ top: 3, right: 3, bottom: 3, left: 3 }}>
+                <PolarGrid />
+                <PolarAngleAxis dataKey="subject" tick={{ fill: 'white', fontSize: 18, stroke: 'black', strokeWidth: 0.1 }} />
+                <PolarRadiusAxis />
+                <Tooltip content={<CustomTooltip />} />
+                <Radar name="UserName" dataKey="A" stroke="#FFFFFF" fill="#FFA74F" fillOpacity={0.8} />
+              </RadarChart>
+            </ResponsiveContainer>
         }
       </span >
       {tooltipContent && ReactDOM.createPortal(
@@ -121,8 +125,10 @@ function GraphicsInitial() {
           <p style={{ margin: 0 }}>{tooltipContent}</p>
         </div>,
         document.body
-      )}
-    </div>
+      )
+      }
+      <button className="button" onClick={handleGenerarReporte}> Generar Reporte </button>
+    </div >
   );
 }
 

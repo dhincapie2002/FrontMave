@@ -53,3 +53,12 @@ export async function SetHabbitScore(data) {
     }
     )    
 }
+export async function GetHabbitQuestions(id) {
+    return await axios.get(`${URL}/Question/GetHabitQuestions/${id}`,
+        {
+            headers:{
+                Authorization: `Bearer ${tokenA}`
+            }
+        }
+    )
+}
