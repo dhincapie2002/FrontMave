@@ -1,70 +1,92 @@
 #boton-ver {
-    background-color: #007bff;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: block;
-  }
+  background-color: #007bff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+}
 
-  #article {
-    text-align: center;
-  }
-  
-  #imagen-articulo {
-    width: 45%;
-    height: 45%;
-    display: block;
-    margin: 2% auto;
-  }
-  
-  #date {
-    margin-top: 1%;
-  }
-  
-  #controles {
-    display: flex;
-    margin-top: -30px;
-    margin-bottom: 8px;
-    margin-right: 19.5%;
-  }
-  
-  #controles button {
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  #controles button:hover {
-    background-color: #0056b3;
-  }
+#article {
+  text-align: center;
+}
 
-  #num{
-    margin-top: 22%;
-    margin-left: 20%;
-    margin-right: 20% ;
-    cursor: pointer;
-  }
+#imagen-articulo {
+  width: 45%;
+  height: 45%;
+  display: block;
+  margin: 2% auto;
+}
 
-  #titulo{
-    margin-top: 7%;
-    margin-bottom: 2%;
-  }
+#date {
+  margin-top: 1%;
+}
 
-  #div-titulo {
-    min-height: 100px;
-    max-height: 100px; /* Establece la altura máxima del contenedor del título */
-    overflow: hidden; /* Oculta cualquier contenido que exceda la altura máxima */
-    margin-top: -5%;
-  }
-#list-oneArticle{
+#controles {
+  display: flex;
+  margin-top: -30px;
+  margin-bottom: 8px;
+  margin-right: 19.5%;
+}
+
+#controles button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#controles button:hover {
+  background-color: #0056b3;
+}
+
+#num {
+  margin-top: 22%;
+  margin-left: 20%;
+  margin-right: 20%;
+  cursor: pointer;
+}
+
+#titulo {
+  margin-top: 7%;
+  margin-bottom: 2%;
+}
+
+#div-titulo {
+  min-height: 100px;
+  max-height: 100px;
+  /* Establece la altura máxima del contenedor del título */
+  overflow: hidden;
+  /* Oculta cualquier contenido que exceda la altura máxima */
+  margin-top: -5%;
+}
+
+#list-oneArticle {
   margin-bottom: -60%;
 }
-.form-cam{
-  margin: 5px;
+
+.form-cam-inp {
+  width: 15%;
+  margin: 15px;
   border-radius: 20px;
+}
+
+.form-cam-select {
+  background-color: rgb(220, 226, 233);
+  color: #101010;
+  font-size: 20px;
+  padding: 10px 45px;
+  border: 1px solid transparent;
+  margin: 25px;
+  width: 80%;
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Lilita One', Times, serif;
+}
+.option-sel{
+  border-radius: 15px;
 }

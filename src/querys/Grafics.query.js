@@ -15,7 +15,6 @@ export async function GetDataGraficsIni(id) {
                 Authorization: `Bearer ${tokenA}`
             }
         })
-    console.log(result)
     return result;
 }
 export async function GetDataGraficsMood(id) {
@@ -26,4 +25,13 @@ export async function GetDataGraficsMood(id) {
             }
         })
     return result;
+}
+export async function GetReport(id) {
+    return await axios.get(`${URL}/Report/GetInitialReport/${id}`,
+        {
+            headers:{
+                Authorization: `Bearer ${tokenA}`
+            }
+        }
+    )
 }

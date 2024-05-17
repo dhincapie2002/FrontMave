@@ -6,6 +6,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 import { GetAllUsersFromAdmin, updateUser } from "../../hooks/UserHook";
 import Swal from "sweetalert2";
+import { MdMargin } from "react-icons/md";
+import { IdUser } from "../../querys/Notify.query";
 
 const OneUsers = () => {
 
@@ -23,10 +25,6 @@ const OneUsers = () => {
   const { data: result, isSuccess } = GetAllUsersFromAdmin(cook)
   const users = isSuccess && result.data;
   const { id } = useParams(); // Obtener el valor del parámetro de la ruta
-
-  const [name, setName] = useState("");
-  const [email, setResume] = useState("");
-  const [phone, setPhone] = useState("");
   const [role, setRole] = useState(null);
   // Verificar si el ID es válido y obtener el artículo correspondiente
   const indiceInicial = parseInt(id) - 1;
@@ -55,29 +53,39 @@ const OneUsers = () => {
     e.preventDefault();
 
     // Verificar si algún campo está vacío
-    if (!name || !email || !phone || !role) {
+    if ( !role) {
       // Mostrar alerta si algún campo está vacío
       Swal.fire({
-        title: 'Por favor completa todos los campos',
+        title: 'Por favor asigna un rol ',
         icon: 'warning',
         confirmButtonColor: '#1B5091',
         backdrop: "linear-gradient(to right, #60C8B3, #1B5091)",
       });
       return; // Detener el envío del formulario si algún campo está vacío
     }
+
+    var rol = 3
+    if ( role  == "Administrador") {
+      rol = rol-1
+    }
+    if ( role  == "Usuario") {
+      rol = rol+1
+    }
+
     const data = {
       Id: user.userId,
-      name: name,
-      email: email,
-      phone: phone,
-      rol: role
+      rol: rol
     }
-    console.log(data)
     mutacion.mutate(data)
   }
 
   const user = users[indiceArticulo];
-  console.log(user)
+  const roleMap = {
+    2: "Administrador",
+    4: "Usuario",
+    3: "Psicologo",
+
+  };
   return (
     <div className="rp-cont">
       <Navbar />
@@ -87,61 +95,41 @@ const OneUsers = () => {
         </div>
         <form onSubmit={handleSubmit}>
           <div className="form-cam">
-            <label htmlFor="name">Nombre:</label>
-            <input className="form-cam-inp"
-              type="text"
-              id="name"
-              placeholder={isSuccess && user.userName}
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
+            <h2 style={{margin: 25}}>{isSuccess && user.email}</h2>
           </div>
           <div className="form-cam">
-            <label htmlFor="email">email:</label>
-            <input className="form-cam-inp"
-              type="text"
-              id="email"
-              placeholder={isSuccess && user.email}
-              value={email}
-              onChange={(e) => setResume(e.target.value)}
-            />
+            <h2 style={{margin: 25}}>{isSuccess && user.phone}</h2>
           </div>
           <div className="form-cam">
-            <label htmlFor="email">telefono:</label>
-            <input className="form-cam-inp"
-              type="number"
-              id="email"
-              placeholder={isSuccess && user.phone}
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
-          </div>
-          <div className="form-cam">
-            <label htmlFor="role">rol:</label>
-            <input className="form-cam-inp"
-              type="number"
+            <label htmlFor="role">Rol:</label>
+            <select
+              className="form-cam-select"
               id="role"
-              placeholder={isSuccess && user.roleId}
               value={role}
               onChange={(e) => setRole(e.target.value)}
-            />
+            >
+              <option className="option-sel" value="" disabled>Selecciona el rol</option>
+              {Object.entries(roleMap).map(([key, value]) => (
+                <option key={key} value={value}>{value}</option>
+              ))}
+            </select>
           </div>
           <button id="form-btn" type="submit" onClick={handleSubmit} >Actualizar Usuario</button>
           {
-                mutacion.isPending && <span><img className="Loading" src="https://mvalma.com/inicio/public/include/img/ImagenesTL/paginaTL/Cargando.gif" alt="Cargando" /></span>
-            }
-            {
-                mutacion.isSuccess && Swal.fire({
-                  title: 'El recurso fue cargado con exito',
-                  icon: 'success',
-                  confirmButtonColor: '#1B5091',
-                  backdrop: "linear-gradient(to right, #60C8B3, #1B5091)",
-                })
-                &&  navigate("/AllUsers")
-            }
-            {
-                mutacion.isError && <span>Parece que algo fallo, intenta de nuevo</span>
-            }
+            mutacion.isPending && <span><img className="Loading" src="https://mvalma.com/inicio/public/include/img/ImagenesTL/paginaTL/Cargando.gif" alt="Cargando" /></span>
+          }
+          {
+            mutacion.isSuccess && Swal.fire({
+              title: 'El recurso fue cargado con exito',
+              icon: 'success',
+              confirmButtonColor: '#1B5091',
+              backdrop: "linear-gradient(to right, #60C8B3, #1B5091)",
+            })
+            && navigate("/AllUsers")
+          }
+          {
+            mutacion.isError && <span>Parece que algo fallo, intenta de nuevo</span>
+          }
         </form>
       </div>
 

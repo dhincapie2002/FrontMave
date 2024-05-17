@@ -7,11 +7,13 @@ export let IdUser = cook.get(`id`)
 let tokenA = cook.get(`token`);
 
 export async function GetNotify(id) {
-    console.log(id,tokenA)
     return await axios.post(`${URL}/Question/PositiveReinforcement/${id}`,
     {
         headers: {
             Authorization: `Bearer ${tokenA}`
         }
     })
+}
+export async function SendMensage() {
+    return await axios.post(`${URL}/Notify/SendMesssages`)
 }

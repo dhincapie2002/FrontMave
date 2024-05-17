@@ -6,6 +6,7 @@ import "../styles/Dashboard.css";
 import Navbar from "../components/Navbar";
 import { GetUser } from "../hooks/UserHook";
 import { role } from "../querys/User.query";
+import { setMenssage } from "../hooks/Notify";
 
 function Dashboard() {
   //const [userName, setUserName] = useState("");
@@ -18,15 +19,13 @@ function Dashboard() {
       navigate('/time-out') // Hay que crear la ruta time out que es el cierre de sesioón
     }
   }, [])
-  //useEffect(() => {
-  //  //cargar el nombre de usuario desde la base de datos
-  //  const fetchUserName = async () => {
-  //    const fetchedUserName = "Elvis Quito";
-  //    setUserName(fetchedUserName);
-  //  };
-  //
-  //  fetchUserName();
-  //},[]);
+  const lastExecution = localStorage.getItem('lastExecution');
+  const today = new Date().toISOString().split('T')[0]; // Obtener la fecha de hoy en formato YYYY-MM-DD
+
+  if (lastExecution !== today) {
+    setMenssage();
+    localStorage.setItem('lastExecution', today); // Actualizar la última ejecución
+  }
 
   return (
     <div className="rp-cont">
