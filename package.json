@@ -24,7 +24,8 @@
     "recharts": "^2.12.5",
     "styled-component": "^2.8.0",
     "sweetalert2": "^11.10.7",
-    "universal-cookie": "^7.1.4"
+    "universal-cookie": "^7.1.4",
+    "vercel": "^34.2.6"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",
